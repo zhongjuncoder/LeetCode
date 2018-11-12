@@ -1,4 +1,6 @@
+import java.text.DecimalFormat;
 import java.util.Arrays;
+import java.util.Calendar;
 
 /**
  * 有序度是指数组中具有有序关系的元素对的个数，即是a[i]<a[j]&&i<j。在{4,5,6,3,2,1}中有序度为3，有序的元素对为(4,5),(4,6),(5,6)
@@ -12,15 +14,13 @@ import java.util.Arrays;
 public class SortAlgorithm {
 
     public static void main(String[] args) {
-        int[] numbers = {4, 5, 6, 3, 2, 1};
-        insertSort(numbers);
-        System.out.println(Arrays.toString(numbers));
+
     }
 
     /**
      * 冒泡排序
      * <p>
-     * 依次比较相邻的两个元素，如果满足需求就交换。没遍历一次就能把最大/最小的那个元素放在后面合适的位置
+     * 依次比较相邻的两个元素，如果满足需求就交换。每遍历一次就能把最大/最小的那个元素放在后面合适的位置
      * <p>
      * 当元素本来就是排好序的情况下只需要遍历一次，最好时间复杂度是O(1)
      * </p>

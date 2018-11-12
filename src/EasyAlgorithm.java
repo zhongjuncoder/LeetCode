@@ -5,6 +5,7 @@ import java.util.List;
 public class EasyAlgorithm {
 
     public static void main(String[] args) {
+        System.out.println(peakIndexInMountainArray(new int[]{0, 1, 0}));
     }
 
     /**
@@ -30,14 +31,6 @@ public class EasyAlgorithm {
                 result++;
             }
         }
-
-        /*
-         *更方便的方法
-         for (char c : S.toCharArray()) {
-            if (J.indexOf(c) != -1) {
-                result++;
-            }
-        }*/
         return result;
     }
 
@@ -288,6 +281,32 @@ public class EasyAlgorithm {
         t1.left = mergeTrees(t1.left, t2.left);
         t1.right = mergeTrees(t1.right, t2.right);
         return t1;
+    }
+
+    /**
+     * 852. Peak Index in a Mountain Array
+     * <p>
+     * 给定一个数组，长度限制为3<=length<=10000，值限制为0<=A[i]<=10^6。
+     * 数组存在一个数满足A[0] < A[1] < ... A[i-1] < A[i] > A[i+1] > ... > A[A.length - 1]，请求出i为多少
+     * <p>
+     * Input: [0,2,1,0]
+     * Output: 1
+     */
+    public static int peakIndexInMountainArray(int[] A) {
+        //其实就是找出数组中最大那个数的下标，因为数组是先按递增到最大值，然后再递减的，所以也是可以用二分查找的
+        int start = 0, end = A.length - 1;
+        int middle;
+        while (start <= end) {
+            middle = start + (end - start) / 2;
+            if (A[middle] > A[middle - 1] && A[middle] > A[middle + 1]) {
+                return middle;
+            } else if (A[middle] > A[middle - 1]) {
+                start = middle + 1;
+            } else {
+                end = middle - 1;
+            }
+        }
+        return -1;
     }
 
 }
