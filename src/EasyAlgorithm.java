@@ -1,11 +1,9 @@
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 
 public class EasyAlgorithm {
 
     public static void main(String[] args) {
-        System.out.println(peakIndexInMountainArray(new int[]{0, 1, 0}));
+        System.out.println(Arrays.toString(sortArrayByParityII(new int[]{0, 1, 0})));
     }
 
     /**
@@ -307,6 +305,71 @@ public class EasyAlgorithm {
             }
         }
         return -1;
+    }
+
+    /**
+     * 922 https://leetcode.com/problems/sort-array-by-parity-ii/description/
+     * <p>
+     * 给定一个数组，数组的长度为偶数，数组里面的值一半为奇数，一半为偶数，要求把奇数放在数组下标为奇数的位置，偶数放在数组下标为偶数的位置,顺序不定
+     * <p>
+     * Input: [4,2,5,7]
+     * <p>
+     * Output: [4,5,2,7]
+     * <p>
+     * Explanation: [4,7,2,5], [2,5,4,7], [2,7,4,5] would also have been accepted.
+     *
+     * @see #sortArrayByParityBetter(int[])
+     */
+    public static int[] sortArrayByParityII(int[] A) {
+        int start = 0, end = A.length - 1;
+        while (start < end) {
+            while (start < end && A[start] % 2 == start % 2) {
+                start++;
+            }
+            //start代表的下标和值的奇偶数不一致
+            if (start < end) {
+                int i = end;
+                while (i > start && A[i] % 2 != start % 2) {
+                    i--;        //找到下标为i的值和start位置的奇偶性一样的
+                }
+                swap(A, start, i);
+                start++;
+            }
+
+            while (start < end && A[end] % 2 == end % 2) {
+                end--;
+            }
+
+            if (start < end) {
+                int i = start;
+                while (i < end && A[i] % 2 != end % 2) {
+                    i++;
+                }
+                swap(A, end, i);
+                end--;
+            }
+        }
+        return A;
+    }
+
+    public static int[] sortArrayByParityIIBetter(int[] A) {
+        int j = 1;      //i为偶数的下标，j为奇数的下标
+        for (int i = 0; i < A.length; i += 2) {
+            if (A[i] % 2 != 0) {
+                //如果数组偶数下标的值为奇数，则找到数组奇数下标的值为偶数的位置，交换即可。因为数组本来是一半奇数一般偶数的，所以肯定能找到。
+                while (A[j] % 2 == 1) {
+                    j += 2;
+                }
+                swap(A, i, j);
+            }
+        }
+        return A;
+    }
+
+    private static void swap(int[] array, int i, int j) {
+        int temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
     }
 
 }
