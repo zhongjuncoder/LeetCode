@@ -366,6 +366,64 @@ public class EasyAlgorithm {
         return A;
     }
 
+    /**
+     * 867:https://leetcode.com/problems/transpose-matrix/description/
+     * <p>
+     * 将二维数组的行和列颠倒过来
+     * </p>
+     */
+    public int[][] transpose(int[][] A) {
+        int[][] array = new int[A[0].length][A.length];
+        for (int i = 0; i < A.length; i++) {
+            for (int j = 0; j < A[i].length; j++) {
+                array[j][i] = A[i][j];
+            }
+        }
+        return array;
+    }
+
+    private List<Integer> mIntegers = new ArrayList<>();
+
+    /**
+     * 589:https://leetcode.com/problems/n-ary-tree-preorder-traversal/description/
+     * <p>
+     * 给定一棵数，要求从前序遍历求出结点的值
+     */
+    public List<Integer> preorder(Node root) {
+        // For example, given a 3-ary tree:
+        //               1
+        //       3       2         4
+        //   5       6
+        //Return its preorder traversal as: [1,3,5,6,2,4].
+        preorderNode(root);
+        return mIntegers;
+    }
+
+    public void preorderNode(Node root) {
+        if (root == null) {
+            return;
+        }
+        mIntegers.add(root.val);
+        if (root.children != null) {
+            for (int i = 0; i < root.children.size(); i++) {
+                preorder(root.children.get(i));
+            }
+        }
+    }
+
+    class Node {
+        public int val;
+        public List<Node> children;
+
+        public Node() {
+        }
+
+        public Node(int _val, List<Node> _children) {
+            val = _val;
+            children = _children;
+        }
+    }
+
     private static void swap(int[] array, int i, int j) {
         int temp = array[i];
         array[i] = array[j];
