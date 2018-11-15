@@ -103,6 +103,59 @@ public class SortAlgorithm {
     }
 
     /**
+     * 归并排序
+     * <p>
+     * 利用分治的思想，把一个数组的排序变为两个小数组的排序，然后把小数组的排序结果合并起来，这样最终整个数组就是已排好序的了
+     * <p>
+     * 无论数组是有序还是无序都需要对数组进行拆分和合并，所以时间复杂度都是O(nlogn)。虽然每次在合并数组的时候都需要额外申请所合并数组的大小的空间，
+     * 不过因为每次函数调用完空间都会被释放，所以空间复杂度是O(n)。
+     * <p>
+     * 归并排序是稳定的排序
+     *
+     * @param numbers [11,8,3,9,7,1,2,5]
+     * @param start   0
+     * @param end     7
+     */
+    private static void mergeSort(int[] numbers, int start, int end) {
+        if (start >= end) {
+            return;
+        }
+
+        int middle = start + (end - start) / 2;
+        mergeSort(numbers, start, middle);          //0,3
+        mergeSort(numbers, middle + 1, end);  //4,7
+        mergeSort(numbers, start, middle, middle + 1, end);
+    }
+
+    /**
+     * 将归并排序分成的两部分数组排序
+     */
+    private static void mergeSort(int[] numbers, int firstStart, int firstEnd, int secondStart, int secondEnd) {
+        int[] array = new int[secondEnd - firstStart + 1];      //用于存储排序好的数据
+        int index = 0;
+        int i = firstStart, j = secondStart;
+        while (i <= firstEnd && j <= secondEnd) {
+            if (numbers[i] < numbers[j]) {
+                array[index++] = numbers[i++];
+            } else {
+                array[index++] = numbers[j++];
+            }
+        }
+
+        //如果两部分的数组长度不一样，则还会有一个数组有元素剩余，则把剩余的元素放入array
+        while (i <= firstEnd) {
+            array[index++] = numbers[i++];
+        }
+
+        while (j <= secondEnd) {
+            array[index++] = numbers[j++];
+        }
+
+        //将排序好的数组复制回原数组
+        System.arraycopy(array, 0, numbers, firstStart, secondEnd + 1 - firstStart);
+    }
+
+    /**
      * 将数组中两个位置的值交换
      */
     private static void swap(int[] numbers, int positionA, int positionB) {

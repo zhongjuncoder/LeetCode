@@ -1,3 +1,5 @@
+import com.sun.xml.internal.ws.encoding.MtomCodec;
+
 import java.util.*;
 
 public class EasyAlgorithm {
@@ -281,6 +283,39 @@ public class EasyAlgorithm {
         return t1;
     }
 
+    private TreeNode mTreeNode;
+
+    /**
+     * 700:https://leetcode.com/problems/search-in-a-binary-search-tree/description/
+     * <p>
+     * 给定一个二叉搜索树（左节点的值比根节点小，又节点的值比根节点大），要求在二叉树中找到值为val的结点并返回
+     */
+    public TreeNode searchBST(TreeNode root, int val) {
+        //          4
+        //      2       7
+        //    1    3
+        //val为2，则返回
+        //      2
+        //    1    3
+        if (root == null) {
+            return null;
+        }
+        if (root.val == val) {
+            return root;
+        }
+        if (root.val < val) {
+            if ((mTreeNode = searchBST(root.right, val)) != null) {
+                return mTreeNode;
+            }
+        } else {
+            if ((mTreeNode = searchBST(root.left, val)) != null) {
+                return mTreeNode;
+            }
+        }
+
+        return null;
+    }
+
     /**
      * 852. Peak Index in a Mountain Array
      * <p>
@@ -387,7 +422,7 @@ public class EasyAlgorithm {
     /**
      * 589:https://leetcode.com/problems/n-ary-tree-preorder-traversal/description/
      * <p>
-     * 给定一棵数，要求从前序遍历求出结点的值
+     * 给定一棵N叉数，要求从前序遍历求出结点的值
      */
     public List<Integer> preorder(Node root) {
         // For example, given a 3-ary tree:
@@ -411,9 +446,27 @@ public class EasyAlgorithm {
         }
     }
 
+    /**
+     * 590:https://leetcode.com/problems/n-ary-tree-postorder-traversal/description/
+     * <p>
+     * 后序遍历N叉树
+     */
+    public List<Integer> postorder(Node root) {
+        if (root == null) {
+            return mIntegers;
+        }
+        if (root.children != null) {
+            for (int i = 0; i < root.children.size(); i++) {
+                postorder(root.children.get(i));
+            }
+        }
+        mIntegers.add(root.val);
+        return mIntegers;
+    }
+
     class Node {
-        public int val;
-        public List<Node> children;
+        int val;
+        List<Node> children;
 
         public Node() {
         }

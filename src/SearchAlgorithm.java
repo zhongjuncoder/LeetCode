@@ -13,7 +13,7 @@ public class SearchAlgorithm {
         int start = 0, end = array.length - 1;
         int middle;
         while (start <= end) {                      //循环终止条件为<=
-            middle = start + (end - start) / 2;     //之所以不用(start+end)/2是因为如果两个很多的数相加会导致溢出
+            middle = start + (end - start) / 2;     //之所以不用(start+end)/2是因为如果两个很大的数相加会导致溢出
             if (array[middle] == key) {
                 return middle;
             } else if (array[middle] > key) {
