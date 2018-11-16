@@ -5,7 +5,7 @@ import java.util.*;
 public class EasyAlgorithm {
 
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(sortArrayByParityII(new int[]{0, 1, 0})));
+        
     }
 
     /**
@@ -464,6 +464,31 @@ public class EasyAlgorithm {
         return mIntegers;
     }
 
+    /**
+     * 559:https://leetcode.com/problems/maximum-depth-of-n-ary-tree/description/
+     * <p>
+     * 求N叉树的最大深度
+     * <p>
+     * 思路：假如只有一个结点，那最大深度为1；假如有多个结点，那最大深度为根结点+深度最大的子结点
+     */
+    public int maxDepth(Node root) {
+        //                  1
+        //          3       2       4
+        //      5       6
+        //return 3
+        if (root == null) {
+            return 0;
+        }
+        if (root.children == null) {
+            return 1;
+        }
+        int maxDepth = 0;
+        for (Node node : root.children) {
+            maxDepth = Math.max(maxDepth, maxDepth(node));  //求出深度最大的那个子结点的深度
+        }
+        return 1 + maxDepth;    //当前结点的深度最大的那个子结点的深度加上自己（1）
+    }
+
     class Node {
         int val;
         List<Node> children;
@@ -475,6 +500,67 @@ public class EasyAlgorithm {
             val = _val;
             children = _children;
         }
+    }
+
+    private int[] intArray;
+
+    /**
+     * 198:https://leetcode.com/problems/house-robber/description/
+     * <p>
+     * 小偷去到一条街上准备偷房子里面的钱，但是相连的房子有连接的安全系统，如果相连的房子在同一晚被闯入则会自动报警。求出小偷最多能偷出多少钱。
+     * </p>
+     * Input: [1,2,3,1]
+     * Output: 4
+     * <p>
+     * Input: [5,7,1,2,4]
+     * Output: 11
+     *
+     * @param nums 代表每个房子拥有的钱
+     */
+    public int rob(int[] nums) {
+        intArray = new int[nums.length];
+        Arrays.fill(intArray, -1);
+        return robMoney(nums, nums.length - 1);
+    }
+
+    private int robMoney(int[] nums, int index) {
+        if (index < 0) {
+            return 0;
+        }
+        if (intArray[index] != -1) {
+            return intArray[index];
+        }
+        //从最后往前推算，要么选择偷index和index-2的房子，要么偷index-1的房子
+        int result = Math.max(robMoney(nums, index - 2) + nums[index], robMoney(nums, index - 1));
+        intArray[index] = result;
+        return result;
+    }
+
+    /**
+     * 121:https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/
+     * <p>
+     * 给一个数组代表每天的股价，给你一次买进卖出（必须先买进才能卖出，而且不能在同一天）的机会（也可以不买），求最大能赚到的钱。
+     * </p>
+     * Input: [7,1,5,3,6,4]
+     * Output: 5。在价格为1的时候买进，在价格为6的时候卖出，能赚6块。
+     * <p>
+     * Input: [7,6,4,3,1]
+     * Output: 0。怎么买都是亏的，所以不买
+     * <p>
+     * 把每天的股价用坐标系画出来连成线，就会发现其实就是求y值相差最大的两个点的距离。
+     * </p>
+     */
+    public int maxProfit(int[] prices) {
+        int minPrice = Integer.MAX_VALUE;
+        int result = 0;
+        for (int price : prices) {
+            if (price < minPrice) {
+                minPrice = price;
+            } else if (price - minPrice > result) {
+                result = price - minPrice;
+            }
+        }
+        return result;
     }
 
     private static void swap(int[] array, int i, int j) {

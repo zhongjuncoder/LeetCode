@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ee118b5b-6c2b-4939-a9f4-3ed51cee83d3" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SearchAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SearchAlgorithm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EasyAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EasyAlgorithm.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,11 +18,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="EasyAlgorithm.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="EasyAlgorithm.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/EasyAlgorithm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="27">
-              <caret line="448" selection-start-line="448" selection-end-line="448" />
+            <state relative-caret-position="506">
+              <caret line="581" column="13" selection-start-line="581" selection-start-column="13" selection-end-line="581" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -30,11 +30,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SearchAlgorithm.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SearchAlgorithm.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/SearchAlgorithm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="729">
-              <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
+            <state relative-caret-position="54">
+              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -54,7 +54,7 @@
       <file leaf-file-name="System.java" pinned="false" current-in-tab="false">
         <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/java/lang/System.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="12150">
+            <state relative-caret-position="13284">
               <caret line="492" column="30" selection-start-line="492" selection-start-column="30" selection-end-line="492" selection-end-column="30" />
             </state>
           </provider>
@@ -76,12 +76,12 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/SortAlgorithm.java" />
-        <option value="$PROJECT_DIR$/src/EasyAlgorithm.java" />
         <option value="$PROJECT_DIR$/src/SearchAlgorithm.java" />
+        <option value="$PROJECT_DIR$/src/EasyAlgorithm.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
@@ -95,6 +95,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -112,8 +114,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -131,7 +131,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.SearchAlgorithm">
+  <component name="RunManager" selected="Application.EasyAlgorithm">
     <configuration name="EasyAlgorithm" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="EasyAlgorithm" />
       <module name="LeetCode" />
@@ -195,9 +195,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.EasyAlgorithm" />
         <item itemvalue="Application.SearchAlgorithm" />
         <item itemvalue="Application.SortAlgorithm" />
-        <item itemvalue="Application.EasyAlgorithm" />
       </list>
     </recent_temporary>
   </component>
@@ -227,7 +227,7 @@
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.19872476" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.19872476" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
@@ -256,6 +256,74 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/EasyAlgorithm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="12096">
+          <caret line="448" selection-start-line="448" selection-end-line="448" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SearchAlgorithm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SortAlgorithm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2754">
+          <caret line="104" selection-start-line="104" selection-end-line="104" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/java/lang/System.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="13284">
+          <caret line="492" column="30" selection-start-line="492" selection-start-column="30" selection-end-line="492" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EasyAlgorithm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="11988">
+          <caret line="448" selection-start-line="448" selection-end-line="448" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SortAlgorithm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2754">
+          <caret line="104" selection-start-line="104" selection-end-line="104" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/java/lang/System.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="13284">
+          <caret line="492" column="30" selection-start-line="492" selection-start-column="30" selection-end-line="492" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SearchAlgorithm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1377">
+          <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/EasyAlgorithm.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="12096">
@@ -511,7 +579,7 @@
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/java/lang/System.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12150">
+        <state relative-caret-position="13284">
           <caret line="492" column="30" selection-start-line="492" selection-start-column="30" selection-end-line="492" selection-end-column="30" />
         </state>
       </provider>
@@ -526,20 +594,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/EasyAlgorithm.java">
+    <entry file="file://$PROJECT_DIR$/src/SearchAlgorithm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="448" selection-start-line="448" selection-end-line="448" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="54">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SearchAlgorithm.java">
+    <entry file="file://$PROJECT_DIR$/src/EasyAlgorithm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="729">
-          <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
+        <state relative-caret-position="506">
+          <caret line="581" column="13" selection-start-line="581" selection-start-column="13" selection-end-line="581" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
