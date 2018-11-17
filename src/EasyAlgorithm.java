@@ -5,7 +5,7 @@ import java.util.*;
 public class EasyAlgorithm {
 
     public static void main(String[] args) {
-        
+
     }
 
     /**
