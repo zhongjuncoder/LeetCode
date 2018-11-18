@@ -563,6 +563,42 @@ public class EasyAlgorithm {
         return result;
     }
 
+    /**
+     * 942:https://leetcode.com/problems/di-string-match/description/
+     * <p>
+     * Input: "IDID"
+     * Output: [0,4,1,3,2]
+     * </p>
+     * 不明白这题想考什么
+     *
+     * @param S 里面只有I（代表递增）和D（代表递减）两种字母
+     * @return A 返回一个整型数组，要求当S[i]=="I"时，A[i]<[i+1]；当S[i]=="D"时，A[i]>A[i+1]。
+     */
+    public int[] diStringMatch(String S) {
+        int[] result = new int[S.length() + 1];
+        int increase = 0, decrease = S.length();
+        if (S.charAt(0) == 'I') {
+            result[0] = increase++;
+        } else {
+            result[0] = decrease--;
+        }
+
+        for (int i = 1; i < S.length(); i++) {
+            if (S.charAt(i) == 'I') {
+                result[i] = increase++;
+            } else {
+                result[i] = decrease--;
+            }
+        }
+
+        if (S.charAt(S.length() - 1) == 'I') {
+            result[S.length()] = increase;
+        } else {
+            result[S.length()] = decrease;
+        }
+        return result;
+    }
+
     private static void swap(int[] array, int i, int j) {
         int temp = array[i];
         array[i] = array[j];
