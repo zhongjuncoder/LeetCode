@@ -599,6 +599,49 @@ public class EasyAlgorithm {
         return result;
     }
 
+    public class ListNode {
+        int val;
+        ListNode next;
+
+        ListNode(int x) {
+            val = x;
+        }
+    }
+
+    /**
+     * 876：https://leetcode.com/problems/middle-of-the-linked-list/description/
+     * <p>
+     * Input: [1,2,3,4,5]
+     * Output: Node 3 from this list (Serialization: [3,4,5])
+     * <p>
+     * Input: [1,2,3,4,5,6]
+     * Output: Node 4 from this list (Serialization: [4,5,6])
+     *
+     * @return 单链表的中间节点，如果有两个中间节点则返回第二个
+     */
+    public ListNode middleNode(ListNode head) {
+        int count = 0;
+        for (ListNode listNode = head; listNode != null; listNode = listNode.next) {
+            count++;
+        }
+        for (int i = 0; i < count / 2; i++) {
+            head = head.next;
+        }
+        return head;
+    }
+
+    /**
+     * 采用快慢指针的方法，快指针每次走两步，慢指针每次走一步，当快指针走到终点时，慢指针则刚好到中点
+     */
+    private ListNode middleNodeBetter(ListNode head) {
+        ListNode slow = head, fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
+    }
+
     private static void swap(int[] array, int i, int j) {
         int temp = array[i];
         array[i] = array[j];
