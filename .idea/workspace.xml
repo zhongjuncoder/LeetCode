@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ee118b5b-6c2b-4939-a9f4-3ed51cee83d3" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LeetCode/EasyAlgorithm$Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LeetCode/EasyAlgorithm$Node.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LeetCode/EasyAlgorithm$TreeNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LeetCode/EasyAlgorithm$TreeNode.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LeetCode/EasyAlgorithm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LeetCode/EasyAlgorithm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LeetCode/MediumAlgorithm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LeetCode/MediumAlgorithm.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/EasyAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EasyAlgorithm.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -25,10 +21,12 @@
       <file leaf-file-name="EasyAlgorithm.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/EasyAlgorithm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="265">
-              <caret line="611" column="7" selection-start-line="611" selection-start-column="7" selection-end-line="611" selection-end-column="7" />
+            <state relative-caret-position="229">
+              <caret line="645" column="8" selection-start-line="645" selection-start-column="8" selection-end-line="645" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#146#147#0" expanded="true" />
+                <element signature="e#182#183#0" expanded="true" />
                 <element signature="e#16813#16814#0" expanded="true" />
                 <element signature="e#16844#16845#0" expanded="true" />
               </folding>
@@ -124,9 +122,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
       <pane id="Scope" />
-      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -143,6 +140,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -256,27 +254,27 @@
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Messages" order="7" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.2922423" />
       <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.065887354" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3995749" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3995749" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Coverage" order="4" side_tool="true" weight="0.3296875" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Messages" order="7" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -315,6 +313,8 @@
           <caret line="546" column="25" lean-forward="true" selection-start-line="546" selection-start-column="25" selection-end-line="546" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#146#147#0" expanded="true" />
+            <element signature="e#182#183#0" expanded="true" />
             <element signature="e#16813#16814#0" expanded="true" />
             <element signature="e#16844#16845#0" expanded="true" />
           </folding>
@@ -351,6 +351,8 @@
           <caret line="448" selection-start-line="448" selection-end-line="448" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#146#147#0" expanded="true" />
+            <element signature="e#182#183#0" expanded="true" />
             <element signature="e#16813#16814#0" expanded="true" />
             <element signature="e#16844#16845#0" expanded="true" />
           </folding>
@@ -387,6 +389,8 @@
           <caret line="448" selection-start-line="448" selection-end-line="448" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#146#147#0" expanded="true" />
+            <element signature="e#182#183#0" expanded="true" />
             <element signature="e#16813#16814#0" expanded="true" />
             <element signature="e#16844#16845#0" expanded="true" />
           </folding>
@@ -423,6 +427,8 @@
           <caret line="448" selection-start-line="448" selection-end-line="448" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#146#147#0" expanded="true" />
+            <element signature="e#182#183#0" expanded="true" />
             <element signature="e#16813#16814#0" expanded="true" />
             <element signature="e#16844#16845#0" expanded="true" />
           </folding>
@@ -459,6 +465,8 @@
           <caret line="374" column="40" selection-start-line="374" selection-start-column="40" selection-end-line="374" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#146#147#0" expanded="true" />
+            <element signature="e#182#183#0" expanded="true" />
             <element signature="e#16813#16814#0" expanded="true" />
             <element signature="e#16844#16845#0" expanded="true" />
           </folding>
@@ -718,10 +726,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EasyAlgorithm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="611" column="7" selection-start-line="611" selection-start-column="7" selection-end-line="611" selection-end-column="7" />
+        <state relative-caret-position="229">
+          <caret line="645" column="8" selection-start-line="645" selection-start-column="8" selection-end-line="645" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#146#147#0" expanded="true" />
+            <element signature="e#182#183#0" expanded="true" />
             <element signature="e#16813#16814#0" expanded="true" />
             <element signature="e#16844#16845#0" expanded="true" />
           </folding>

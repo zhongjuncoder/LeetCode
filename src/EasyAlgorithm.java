@@ -5,7 +5,7 @@ import java.util.*;
 public class EasyAlgorithm {
 
     public static void main(String[] args) {
-
+        System.out.println(Arrays.toString(shortestToChar("loveleetcode", 'e')));
     }
 
     /**
@@ -640,6 +640,38 @@ public class EasyAlgorithm {
             fast = fast.next.next;
         }
         return slow;
+    }
+
+    /**
+     * 821:https://leetcode.com/problems/shortest-distance-to-a-character/description/
+     * <p>
+     * 给定一个字符串S，和一个字符C，求出字符串中每个字符距离字符C的最短距离。S的长度为[1,10000]，C保证会在S中有，全部字符都是小写。
+     * <p>
+     * Input: S = "loveleetcode", C = 'e'
+     * <p>
+     * Output: [3, 2, 1, 0, 1, 0, 0, 1, 2, 2, 1, 0]
+     */
+    public static int[] shortestToChar(String S, char C) {
+        int[] result = new int[S.length()];
+        int index = -10000; //代表字符串在S中所在的位置，初始值为字符串的最大长度负数
+        //先从头到尾遍历一次，这样可以求出字符距离左边的C（如果有的话）的距离
+        for (int i = 0; i < S.length(); i++) {
+            if (S.charAt(i) == C) {
+                index = i;
+            }
+            result[i] = i - index;
+        }
+
+        index = 10000;      //重新赋值为字符串的最大长度值
+        //然后从尾到头遍历一次，可以求出字符距离右边的C（如果有的话）的距离，取字符离左边和右边最小的距离值。
+        //因为C是在S中存在的，所以要么在字符左边，要么在字符右边，要么是自己，要么左右边都有
+        for (int i = S.length() - 1; i >= 0; i--) {
+            if (S.charAt(i) == C) {
+                index = i;
+            }
+            result[i] = Math.min(result[i], index - i);
+        }
+        return result;
     }
 
     private static void swap(int[] array, int i, int j) {
