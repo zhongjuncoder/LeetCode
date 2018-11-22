@@ -1,11 +1,25 @@
-import com.sun.xml.internal.ws.encoding.MtomCodec;
-
 import java.util.*;
 
 public class EasyAlgorithm {
 
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(shortestToChar("loveleetcode", 'e')));
+        TreeNode treeNode = new TreeNode(2);
+/*        treeNode.left = new TreeNode(5);
+        treeNode.right = new TreeNode(1);
+        treeNode.left.left = new TreeNode(6);
+        treeNode.left.right = new TreeNode(2);
+        treeNode.left.right.left = new TreeNode(7);
+        treeNode.left.right.right = new TreeNode(4);
+        treeNode.right.left = new TreeNode(9);
+        treeNode.right.right = new TreeNode(8);*/
+
+        TreeNode root = new TreeNode(2);
+/*        root.left = new TreeNode(5);
+        root.right = new TreeNode(1);
+        root.left.left = new TreeNode(6);*/
+
+        System.out.println(leafSimilar(treeNode, root));
+
     }
 
     /**
@@ -214,7 +228,7 @@ public class EasyAlgorithm {
         return A;
     }
 
-    public class TreeNode {
+    public static class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;
@@ -672,6 +686,46 @@ public class EasyAlgorithm {
             result[i] = Math.min(result[i], index - i);
         }
         return result;
+    }
+
+    private static List<Integer> sFirstIntList = new ArrayList<>();
+    private static List<Integer> sSecondIntList = new ArrayList<>();
+
+    /**
+     * 872:https://leetcode.com/problems/leaf-similar-trees/description/
+     * <p>
+     * 给定两个二叉树，判断它们的叶子序列是否相同
+     */
+    public static boolean leafSimilar(TreeNode root1, TreeNode root2) {
+        //                        3
+        //               5                   1
+        //         6          2          9       8
+        //               7        4
+        //则叶子序列为(6,7,4,9,8)
+        getTreeLeaf(root1, sFirstIntList);
+        getTreeLeaf(root2, sSecondIntList);
+        if (sFirstIntList.size() != sSecondIntList.size()) {
+            return false;
+        }
+        for (Integer aSFirstIntList : sFirstIntList) {
+            if (!sSecondIntList.contains(aSFirstIntList)) {
+                return false;
+            }
+        }
+        return sFirstIntList.equals(sSecondIntList);
+    }
+
+    private static void getTreeLeaf(TreeNode treeNode, List<Integer> list) {
+        if (treeNode == null) {
+            return;
+        }
+        if (treeNode.left == null && treeNode.right == null) {
+            list.add(treeNode.val);
+            return;
+        }
+
+        getTreeLeaf(treeNode.left, list);
+        getTreeLeaf(treeNode.right, list);
     }
 
     private static void swap(int[] array, int i, int j) {
