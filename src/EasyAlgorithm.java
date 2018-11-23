@@ -728,6 +728,35 @@ public class EasyAlgorithm {
         getTreeLeaf(treeNode.right, list);
     }
 
+    /**
+     * 766:https://leetcode.com/problems/toeplitz-matrix/description/
+     * <p>
+     * 给定一个M*N的二维数组，判断这个数组从左上角到右下角的每个对角线是否都具有相同的元素
+     * </p>
+     * matrix = [
+     * [1,2,3,4],
+     * [5,1,2,3],
+     * [9,5,1,2]
+     * ]
+     * Output: True
+     * <p>
+     * matrix = [
+     * [1,2],
+     * [2,2]
+     * ]
+     * Output: False
+     */
+    public boolean isToeplitzMatrix(int[][] matrix) {
+        for (int row = 0; row < matrix.length; row++) {
+            for (int column = 0; column < matrix[0].length; column++) {
+                if (row > 0 && column > 0 && matrix[row][column] != matrix[row - 1][column - 1]) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
     private static void swap(int[] array, int i, int j) {
         int temp = array[i];
         array[i] = array[j];
