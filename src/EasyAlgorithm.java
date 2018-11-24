@@ -1,25 +1,15 @@
+
 import java.util.*;
 
 public class EasyAlgorithm {
 
     public static void main(String[] args) {
-        TreeNode treeNode = new TreeNode(2);
-/*        treeNode.left = new TreeNode(5);
-        treeNode.right = new TreeNode(1);
-        treeNode.left.left = new TreeNode(6);
-        treeNode.left.right = new TreeNode(2);
-        treeNode.left.right.left = new TreeNode(7);
-        treeNode.left.right.right = new TreeNode(4);
-        treeNode.right.left = new TreeNode(9);
-        treeNode.right.right = new TreeNode(8);*/
-
-        TreeNode root = new TreeNode(2);
-/*        root.left = new TreeNode(5);
-        root.right = new TreeNode(1);
-        root.left.left = new TreeNode(6);*/
-
-        System.out.println(leafSimilar(treeNode, root));
-
+        int m = -1532780032;
+        System.out.println(Integer.toHexString(m));
+        System.out.println(Integer.toHexString(m & 0x000000ff));
+        System.out.println(Integer.toHexString((m & 0x0000ff00) >>> 8));
+        System.out.println(Integer.toHexString((m & 0x00ff0000) >>> 16));
+        System.out.println(Integer.toHexString((m & 0xff000000) >>> 24));
     }
 
     /**
@@ -755,6 +745,36 @@ public class EasyAlgorithm {
             }
         }
         return true;
+    }
+
+    /**
+     * 884:https://leetcode.com/problems/uncommon-words-from-two-sentences/description/
+     * <p>
+     * 找出两个字符串中只出现一次的单词
+     * </p>
+     * Input: A = "this apple is sweet", B = "this apple is sour"
+     * Output: ["sweet","sour"]
+     * <p>
+     * Input: A = "apple apple", B = "banana"
+     * Output: ["banana"]
+     */
+    public String[] uncommonFromSentences(String A, String B) {
+        HashMap<String, Integer> hashMap = new HashMap<>();
+        for (String a : A.split(" ")) {
+            hashMap.put(a, hashMap.getOrDefault(a, 0) + 1);
+        }
+        for (String b : B.split(" ")) {
+            hashMap.put(b, hashMap.getOrDefault(b, 0) + 1);
+        }
+
+        List<String> list = new ArrayList<>();
+        for (String key : hashMap.keySet()) {
+            if (hashMap.get(key) == 1) {
+                list.add(key);
+            }
+        }
+
+        return list.toArray(new String[0]);
     }
 
     private static void swap(int[] array, int i, int j) {
