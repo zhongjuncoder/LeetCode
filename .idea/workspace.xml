@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ee118b5b-6c2b-4939-a9f4-3ed51cee83d3" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LeetCode/EasyAlgorithm$ListNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LeetCode/EasyAlgorithm$ListNode.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LeetCode/EasyAlgorithm$Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LeetCode/EasyAlgorithm$Node.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LeetCode/EasyAlgorithm$TreeNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LeetCode/EasyAlgorithm$TreeNode.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LeetCode/EasyAlgorithm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LeetCode/EasyAlgorithm.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/EasyAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EasyAlgorithm.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -25,8 +21,12 @@
       <file leaf-file-name="EasyAlgorithm.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/EasyAlgorithm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="752" column="19" selection-start-line="752" selection-start-column="19" selection-end-line="752" selection-end-column="19" />
+            <state relative-caret-position="557">
+              <caret line="784" column="11" selection-start-line="784" selection-start-column="11" selection-end-line="784" selection-end-column="11" />
+              <folding>
+                <element signature="e#95#96#0" expanded="true" />
+                <element signature="e#153#154#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -86,7 +86,7 @@
       <file leaf-file-name="HashMap.java" pinned="false" current-in-tab="false">
         <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/java/util/HashMap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="227">
+            <state relative-caret-position="26946">
               <caret line="1053" column="13" selection-start-line="1053" selection-start-column="13" selection-end-line="1053" selection-end-column="13" />
             </state>
           </provider>
@@ -157,8 +157,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
+    <option name="x" value="-214" />
+    <option name="y" value="53" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
   </component>
@@ -170,8 +170,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -188,7 +188,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -308,8 +308,8 @@
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.22104144" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
@@ -318,8 +318,8 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3995749" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Coverage" order="4" side_tool="true" weight="0.3296875" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -733,15 +733,19 @@
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/java/util/HashMap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
+        <state relative-caret-position="26946">
           <caret line="1053" column="13" selection-start-line="1053" selection-start-column="13" selection-end-line="1053" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EasyAlgorithm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="752" column="19" selection-start-line="752" selection-start-column="19" selection-end-line="752" selection-end-column="19" />
+        <state relative-caret-position="557">
+          <caret line="784" column="11" selection-start-line="784" selection-start-column="11" selection-end-line="784" selection-end-column="11" />
+          <folding>
+            <element signature="e#95#96#0" expanded="true" />
+            <element signature="e#153#154#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

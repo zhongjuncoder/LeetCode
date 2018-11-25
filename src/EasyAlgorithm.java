@@ -4,12 +4,7 @@ import java.util.*;
 public class EasyAlgorithm {
 
     public static void main(String[] args) {
-        int m = -1532780032;
-        System.out.println(Integer.toHexString(m));
-        System.out.println(Integer.toHexString(m & 0x000000ff));
-        System.out.println(Integer.toHexString((m & 0x0000ff00) >>> 8));
-        System.out.println(Integer.toHexString((m & 0x00ff0000) >>> 16));
-        System.out.println(Integer.toHexString((m & 0xff000000) >>> 24));
+        System.out.println((8 >> 3) & 1);
     }
 
     /**
@@ -775,6 +770,49 @@ public class EasyAlgorithm {
         }
 
         return list.toArray(new String[0]);
+    }
+
+    /**
+     * 868:https://leetcode.com/problems/binary-gap/description/
+     * <p>
+     * 给一个整数[1,10^9]，求出它的二进制中两个1相距的最长距离
+     * </p>
+     * Input: 22
+     * Output: 2
+     * Explanation:
+     * 22 in binary is 0b10110.
+     * <p>
+     * Input: 8
+     * Output: 0
+     * Explanation:
+     * 8 in binary is 0b1000.
+     *
+     * @see #binaryGapBetter(int)
+     */
+    public static int binaryGap(int N) {
+        String string = Integer.toBinaryString(N);
+        int max = 0, start = 0;
+        System.out.println(string);
+        for (int i = 0; i < string.length(); i++) {
+            if (string.charAt(i) == '1') {
+                max = Math.max(max, i - start);
+                start = i;
+            }
+        }
+        return max;
+    }
+
+    private int binaryGapBetter(int N) {
+        int max = 0, start = -1;
+        for (int i = 0; i < 32; i++) {
+            if (((N >> i) & 1) == 1) {
+                if (start != -1) {
+                    max = Math.max(max, i - start);
+                }
+                start = i;
+            }
+        }
+        return max;
     }
 
     private static void swap(int[] array, int i, int j) {
