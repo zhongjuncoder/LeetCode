@@ -4,7 +4,14 @@ import java.util.*;
 public class EasyAlgorithm {
 
     public static void main(String[] args) {
-        System.out.println((8 >> 3) & 1);
+        TreeNode treeNode = new TreeNode(379);
+        treeNode.left = new TreeNode(826);
+        //printTreeNode(increasingBST(treeNode));
+        /*treeNode.left.left = new TreeNode(2);
+        treeNode.left.left.left = new TreeNode(1);
+        treeNode.left.right = new TreeNode(4);
+        treeNode.right = new TreeNode(6);
+        treeNode.right.right = new TreeNode(8);*/
     }
 
     /**
@@ -220,6 +227,13 @@ public class EasyAlgorithm {
 
         TreeNode(int x) {
             val = x;
+        }
+
+        @Override
+        public String toString() {
+            return "TreeNode{" +
+                    "val=" + val +
+                    '}';
         }
     }
 
@@ -813,6 +827,70 @@ public class EasyAlgorithm {
             }
         }
         return max;
+    }
+
+    private TreeNode current;
+
+    /**
+     * 897:https://leetcode.com/problems/increasing-order-search-tree/description/
+     * <p>
+     * 给定一颗平衡二叉树（左小右大），重新构造该数令其的根结点值最小（右大），并且没有左结点
+     * </p>
+     * Input: [5,3,6,2,4,null,8,1,null,null,null,7,9]
+     * <p>
+     * //        5
+     * //      / \
+     * //     3    6
+     * //    / \    \
+     * //   2   4    8
+     * //  /        / \
+     * // 1        7   9
+     * <p>
+     * Output: [1,null,2,null,3,null,4,null,5,null,6,null,7,null,8,null,9]
+     * <p>
+     * //  1
+     * //   \
+     * //    2
+     * //     \
+     * //      3
+     * //       \
+     * //        4
+     * //         \
+     * //          5
+     * //           \
+     * //            6
+     * //             \
+     * //              7
+     * //               \
+     * //                8
+     * //                 \
+     * //                  9
+     */
+    public TreeNode increasingBST(TreeNode root) {
+        TreeNode ans = new TreeNode(0);
+        current = ans;
+        rearrangeBST(root);
+        return ans.right;
+    }
+
+    private void rearrangeBST(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        rearrangeBST(root.left);
+        root.left = null;
+        current.right = root;
+        current = root;
+        rearrangeBST(root.right);
+    }
+
+    private static void printTreeNode(TreeNode treeNode) {
+        if (treeNode == null) {
+            return;
+        }
+        System.out.println(treeNode.val);
+        printTreeNode(treeNode.left);
+        printTreeNode(treeNode.right);
     }
 
     private static void swap(int[] array, int i, int j) {
