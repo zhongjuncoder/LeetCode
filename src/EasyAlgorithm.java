@@ -893,6 +893,48 @@ public class EasyAlgorithm {
         printTreeNode(treeNode.right);
     }
 
+    private List<List<Integer>> mLists = new ArrayList<>();
+
+    /**
+     * 492:https://leetcode.com/problems/n-ary-tree-level-order-traversal/description/
+     * <p>
+     * 给定一颗N叉树，获取从上到下，从左到右各个层级结点的值
+     * </p>
+     * //                       1
+     * //           3           2           4
+     * //       5       6
+     * output:[
+     * [1],
+     * [3,2,4],
+     * [5,6]
+     * ]
+     */
+    public List<List<Integer>> levelOrder(Node root) {
+        if (root == null) {
+            return mLists;
+        }
+        List<Integer> list = new ArrayList<>();
+        list.add(root.val);
+        mLists.add(list);
+        getNodeValue(root.children);
+        return mLists;
+    }
+
+    private void getNodeValue(List<Node> children) {
+        if (children == null || children.isEmpty()) {
+            return;
+        }
+
+        List<Integer> list = new ArrayList<>(children.size());
+        List<Node> nodeList = new ArrayList<>();
+        for (Node node : children) {
+            list.add(node.val);
+            nodeList.addAll(node.children);
+        }
+        mLists.add(list);
+        getNodeValue(nodeList);
+    }
+
     private static void swap(int[] array, int i, int j) {
         int temp = array[i];
         array[i] = array[j];
