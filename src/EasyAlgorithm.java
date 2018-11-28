@@ -935,6 +935,38 @@ public class EasyAlgorithm {
         getNodeValue(nodeList);
     }
 
+    /**
+     * 917:https://leetcode.com/problems/reverse-only-letters/description/
+     * <p>
+     * 翻转字母。给定一个字符串，要求将里面的字母翻转过来，其他字符的位置不变。
+     * </p>
+     * Input: "ab-cd"
+     * Output: "dc-ba"
+     * <p>
+     * Input: "Test1ng-Leet=code-Q!"
+     * Output: "Qedo1ct-eeLg=ntse-T!
+     */
+    public String reverseOnlyLetters(String S) {
+        int i = 0, j = S.length() - 1;
+        char[] chars = S.toCharArray();
+        while (i < j) {
+            while (i < S.length() - 1 && !Character.isLetter(S.charAt(i))) {
+                i++;
+            }
+            while (0 <= j && !Character.isLetter(S.charAt(j))) {
+                j--;
+            }
+            if (i < j) {
+                char c = chars[i];
+                chars[i] = chars[j];
+                chars[j] = c;
+                i++;
+                j--;
+            }
+        }
+        return new String(chars);
+    }
+
     private static void swap(int[] array, int i, int j) {
         int temp = array[i];
         array[i] = array[j];
