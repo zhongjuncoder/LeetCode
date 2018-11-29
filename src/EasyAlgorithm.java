@@ -967,6 +967,70 @@ public class EasyAlgorithm {
         return new String(chars);
     }
 
+    /**
+     * 496:https://leetcode.com/problems/next-greater-element-i/description/
+     * <p>
+     * 给定两个数组，数组里面的元素不重复，第一个数组是第二个数组的子集。
+     * 要求将第一个数组的元素改为第二个数组同样元素位置之后第一个比它大的数，如果没有则改为-1。
+     * </p>
+     * Input: nums1 = [4,1,2], nums2 = [1,3,4,2].
+     * Output: [-1,3,-1]
+     * Explanation:4在num2中后面的数是2，比它小，则改为-1；1在num2后是3，比它大，改为3；2在num2后没有元素，改为-1
+     *
+     * @see #nextGreaterElementBetter(int[], int[])
+     */
+    public int[] nextGreaterElement(int[] nums1, int[] nums2) {
+        int index = 0;
+        while (index < nums1.length) {
+            boolean flag = false;
+            for (int i = 0; i < nums2.length; i++) {
+                if (nums2[i] == nums1[index]) {
+                    if (i + 1 < nums2.length && nums2[i + 1] > nums1[index]) {
+                        nums1[index] = nums2[i + 1];
+                    } else {
+                        for (int j = i + 2; j < nums2.length; j++) {
+                            if (nums2[j] > nums1[index]) {
+                                nums1[index] = nums2[j];
+                                flag = true;
+                                break;
+                            }
+                        }
+                        if (!flag) {
+                            nums1[index] = -1;
+                        }
+                    }
+                    break;
+                }
+            }
+            index++;
+        }
+        return nums1;
+    }
+
+    public int[] nextGreaterElementBetter(int[] nums1, int[] nums2) {
+        HashMap<Integer, Integer> hashMap = new HashMap<>();
+        for (int i = 0; i < nums2.length; i++) {
+            hashMap.put(nums2[i], i);
+        }
+
+        int index = 0;
+        while (index < nums1.length) {
+            boolean flag = false;
+            for (int i = hashMap.get(nums1[index]) + 1; i < nums2.length; i++) {
+                if (nums1[index] < nums2[i]) {
+                    nums1[index] = nums2[i];
+                    flag = true;
+                    break;
+                }
+            }
+            if (!flag) {
+                nums1[index] = -1;
+            }
+            index++;
+        }
+        return nums1;
+    }
+
     private static void swap(int[] array, int i, int j) {
         int temp = array[i];
         array[i] = array[j];
