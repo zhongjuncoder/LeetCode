@@ -4,14 +4,6 @@ import java.util.*;
 public class EasyAlgorithm {
 
     public static void main(String[] args) {
-        TreeNode treeNode = new TreeNode(379);
-        treeNode.left = new TreeNode(826);
-        //printTreeNode(increasingBST(treeNode));
-        /*treeNode.left.left = new TreeNode(2);
-        treeNode.left.left.left = new TreeNode(1);
-        treeNode.left.right = new TreeNode(4);
-        treeNode.right = new TreeNode(6);
-        treeNode.right.right = new TreeNode(8);*/
     }
 
     /**
@@ -1029,6 +1021,45 @@ public class EasyAlgorithm {
             index++;
         }
         return nums1;
+    }
+
+    /**
+     * 937:https://leetcode.com/problems/reorder-log-files/description/
+     * <p>
+     * 重新排列日志文件。给定一个日志字符串数组，每个日志都是以空格分开的单词串（包含数字），第一个单词为标识符，代表标识符后面的都是小写字母或者数字。
+     * 要求将日志文件重新排序，标识符后面都是字母的按字典排序再前面（排序不包括标识符），数字的按原来的顺序排在后面。
+     *
+     * @param logs 0 <= logs.length <= 100      3 <= logs[i].length <= 100
+     * @see #reorderLogFilesBetter(String[])
+     */
+    public String[] reorderLogFiles(String[] logs) {
+        List<String> result = new ArrayList<>(logs.length);
+        List<String> digitList = new ArrayList<>();
+        for (String s : logs) {
+            int index = s.indexOf(" ");
+            if (Character.isDigit(s.charAt(index + 1))) {
+                digitList.add(s);
+            } else {
+                result.add(s);
+            }
+        }
+        result.sort(Comparator.comparing(o -> o.substring(o.indexOf(" ") + 1, o.length())));
+        result.addAll(digitList);
+        return result.toArray(logs);
+    }
+
+    public static String[] reorderLogFilesBetter(String[] logs) {
+        Arrays.sort(logs, (o1, o2) -> {
+            int oneIndex = o1.indexOf(" ");
+            int secondIndex = o2.indexOf(" ");
+            boolean oneIsDigit = Character.isDigit(o1.charAt(oneIndex + 1));
+            boolean secondIsDigit = Character.isDigit(o2.charAt(secondIndex + 1));
+            if (!oneIsDigit && !secondIsDigit) {
+                return o1.substring(oneIndex + 1, o1.length()).compareTo(o2.substring(secondIndex + 1, o2.length()));
+            }
+            return oneIsDigit ? (secondIsDigit ? 0 : 1) : -1;
+        });
+        return logs;
     }
 
     private static void swap(int[] array, int i, int j) {
