@@ -1062,6 +1062,74 @@ public class EasyAlgorithm {
         return logs;
     }
 
+    /**
+     * 824:https://leetcode.com/problems/goat-latin/description/
+     * <p>
+     * 给定一个一个字符串，每个单词以空格隔开。
+     * 要求：1，如果单词以元音开头（a,e,i,o,or,u)，就把"ma"添加到单词的结尾。2，如果不是已元音开头，则把第一个字母移到结尾，然后添加"ma"到结尾。
+     * 3，当前是第几个单词就添加几个"a"在结尾。
+     * </p>
+     * Input: "I speak Goat Latin"
+     * Output: "Imaa peaksmaaa oatGmaaaa atinLmaaaaa"
+     *
+     * @see #toGoatLatinBetter(String)
+     */
+    public String toGoatLatin(String S) {
+        StringBuilder stringBuilder = new StringBuilder();
+        StringBuilder aBuilder = new StringBuilder("a");
+        String[] letters = S.split(" ");
+        for (String letter : letters) {
+            if (letter.startsWith("a") || letter.startsWith("e") || letter.startsWith("i") || letter.startsWith("o") || letter.startsWith("u")
+                    || letter.startsWith("A") || letter.startsWith("E") || letter.startsWith("I") || letter.startsWith("O") || letter.startsWith("U")) {
+                stringBuilder.append(letter);
+            } else {
+                stringBuilder.append(letter, 1, letter.length());
+                stringBuilder.append(letter, 0, 1);
+            }
+            stringBuilder.append("ma");
+            stringBuilder.append(aBuilder);
+            stringBuilder.append(" ");
+
+            aBuilder.append("a");
+        }
+        stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+        return stringBuilder.toString();
+    }
+
+    public String toGoatLatinBetter(String S) {
+        StringBuilder stringBuilder = new StringBuilder();
+        StringBuilder aString = new StringBuilder("a");
+        HashSet<Character> hashSet = new HashSet<>();
+        hashSet.add('a');
+        hashSet.add('e');
+        hashSet.add('i');
+        hashSet.add('o');
+        hashSet.add('u');
+        hashSet.add('A');
+        hashSet.add('E');
+        hashSet.add('I');
+        hashSet.add('O');
+        hashSet.add('U');
+
+        String[] letters = S.split(" ");
+        for (String letter : letters) {
+            if (hashSet.contains(letter.charAt(0))) {
+                stringBuilder.append(letter);
+            } else {
+                stringBuilder.append(letter, 1, letter.length());
+                stringBuilder.append(letter, 0, 1);
+            }
+            stringBuilder.append("ma");
+            stringBuilder.append(aString);
+            stringBuilder.append(" ");
+
+            aString.append("a");
+        }
+        stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+        return stringBuilder.toString();
+    }
+
+
     private static void swap(int[] array, int i, int j) {
         int temp = array[i];
         array[i] = array[j];
