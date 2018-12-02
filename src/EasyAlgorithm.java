@@ -1129,6 +1129,34 @@ public class EasyAlgorithm {
         return stringBuilder.toString();
     }
 
+    /**
+     * 896:https://leetcode.com/problems/monotonic-array/description/
+     * <p>
+     * 判断一个数组是不是单调递增或者单调递减(如果相邻的两个数是同样的也可以)
+     */
+    public boolean isMonotonic(int[] A) {
+        byte b = -1;
+        for (int i = 1; i < A.length; i++) {
+            if (b == -1) {
+                if (A[i] > A[i - 1]) {
+                    b = 1;
+                } else if (A[i] < A[i - 1]) {
+                    b = 0;
+                }
+            } else {
+                if (b == 1) {
+                    if (A[i] < A[i - 1]) {
+                        return false;
+                    }
+                } else {
+                    if (A[i] > A[i - 1]) {
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
 
     private static void swap(int[] array, int i, int j) {
         int temp = array[i];
