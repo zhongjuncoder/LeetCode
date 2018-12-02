@@ -1158,6 +1158,39 @@ public class EasyAlgorithm {
         return true;
     }
 
+    /**
+     * 812:https://leetcode.com/problems/largest-triangle-area/description/
+     * <p>
+     * 给定一个二维数组，代表在二维坐标上的点，请求出这些点组成的三角形面积最大是多少
+     * </p>
+     */
+    public double largestTriangleArea(int[][] points) {
+        double area = 0;
+        int length = points.length;
+        for (int i = 0; i < length; i++) {
+            for (int j = i + 1; j < length; j++) {
+                for (int k = j + 1; k < length; k++) {
+                    area = Math.max(area, calculateArea(points[i], points[j], points[k]));
+                }
+            }
+        }
+        return area;
+    }
+
+    /**
+     * 知道三个点，所以可以通过三阶行列式来求解组成的三角形的面积
+     * //         P[0]  P[1]    1
+     * // S=0.5*{ Q[0]  Q[1]    1 }
+     * //         R[0]  R[1]    1
+     * 解法为正对角线相乘的值总和-负对角线相乘的值总和。即P[0]*Q[1]*1+P[1]*1*R[0]+1*Q[0]*R[1]-(R[0]*Q[1]*1+R[1]*1*P[0]+1*Q[0]*P[1])
+     *
+     * @param P P[0]代表横坐标，P[1]代表纵坐标
+     * @return 三个点组成的三角形的面积
+     */
+    private double calculateArea(int[] P, int[] Q, int[] R) {
+        return 0.5 * Math.abs(P[0] * Q[1] + Q[0] * R[1] + R[0] * P[1] - P[1] * Q[0] - Q[1] * R[0] - R[1] * P[0]);
+    }
+
     private static void swap(int[] array, int i, int j) {
         int temp = array[i];
         array[i] = array[j];

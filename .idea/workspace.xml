@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ee118b5b-6c2b-4939-a9f4-3ed51cee83d3" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/EasyAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EasyAlgorithm.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -21,8 +20,8 @@
       <file leaf-file-name="EasyAlgorithm.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/EasyAlgorithm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="1131" column="29" selection-start-line="1131" selection-start-column="29" selection-end-line="1131" selection-end-column="29" />
+            <state relative-caret-position="256">
+              <caret line="1163" column="46" lean-forward="true" selection-start-line="1163" selection-start-column="7" selection-end-line="1163" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -693,8 +692,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EasyAlgorithm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="1131" column="29" selection-start-line="1131" selection-start-column="29" selection-end-line="1131" selection-end-column="29" />
+        <state relative-caret-position="256">
+          <caret line="1163" column="46" lean-forward="true" selection-start-line="1163" selection-start-column="7" selection-end-line="1163" selection-end-column="46" />
         </state>
       </provider>
     </entry>
