@@ -4,6 +4,7 @@ import java.util.*;
 public class EasyAlgorithm {
 
     public static void main(String[] args) {
+        System.out.println(letterCasePermutationBetter("a1b2"));
     }
 
     /**
@@ -1189,6 +1190,69 @@ public class EasyAlgorithm {
      */
     private double calculateArea(int[] P, int[] Q, int[] R) {
         return 0.5 * Math.abs(P[0] * Q[1] + Q[0] * R[1] + R[0] * P[1] - P[1] * Q[0] - Q[1] * R[0] - R[1] * P[0]);
+    }
+
+
+    /**
+     * 784:https://leetcode.com/problems/letter-case-permutation/description/
+     * <p>
+     * 给定一个只包含字母和数字的字符串，求出它的字母大小写的全排列。
+     * </p>
+     * Input: S = "a1b2"
+     * Output: ["a1b2", "a1B2", "A1b2", "A1B2"]
+     */
+    public static List<String> letterCasePermutation(String S) {
+        List<String> list = new ArrayList<>();
+        list.add(S);
+        permutationLetterCase(S, 0, list);
+        return list;
+    }
+
+    public static void permutationLetterCase(String string, int index, List<String> stringList) {
+        if (index >= string.length()) {
+            return;
+        }
+        char c = string.charAt(index);
+        if (Character.isDigit(c)) {
+            permutationLetterCase(string, ++index, stringList);
+            return;
+        }
+        List<String> list = new ArrayList<>();
+        for (String s : stringList) {
+            StringBuilder stringBuilder = new StringBuilder(s.substring(0, index));
+            if (Character.isLowerCase(c)) {
+                stringBuilder.append(Character.toUpperCase(c));
+            } else {
+                stringBuilder.append(Character.toLowerCase(c));
+            }
+            if (index + 1 < string.length()) {
+                stringBuilder.append(s, index + 1, s.length());
+            }
+            list.add(stringBuilder.toString());
+        }
+        stringList.addAll(list);
+        permutationLetterCase(string, ++index, stringList);
+    }
+
+    public static List<String> letterCasePermutationBetter(String S) {
+        List<String> list = new ArrayList<>();
+        permutationLetterCase(S, "", 0, list);
+        return list;
+    }
+
+    private static void permutationLetterCase(String S, String letter, int index, List<String> list) {
+        if (letter.length() == S.length()) {
+            list.add(letter);
+            return;
+        }
+        char c = S.charAt(index);
+        permutationLetterCase(S, letter + c, ++index, list);
+        if (Character.isLowerCase(c)) {
+            permutationLetterCase(S, letter + Character.toUpperCase(c), index, list);
+        } else if (Character.isUpperCase(c)) {
+            permutationLetterCase(S, letter + Character.toLowerCase(c), index, list);
+        }
+
     }
 
     private static void swap(int[] array, int i, int j) {
