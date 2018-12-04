@@ -4,7 +4,7 @@ import java.util.*;
 public class EasyAlgorithm {
 
     public static void main(String[] args) {
-        System.out.println(letterCasePermutationBetter("a1b2"));
+        System.out.println(addDigits(38));
     }
 
     /**
@@ -1192,7 +1192,6 @@ public class EasyAlgorithm {
         return 0.5 * Math.abs(P[0] * Q[1] + Q[0] * R[1] + R[0] * P[1] - P[1] * Q[0] - Q[1] * R[0] - R[1] * P[0]);
     }
 
-
     /**
      * 784:https://leetcode.com/problems/letter-case-permutation/description/
      * <p>
@@ -1253,6 +1252,34 @@ public class EasyAlgorithm {
             permutationLetterCase(S, letter + Character.toLowerCase(c), index, list);
         }
 
+    }
+
+    /**
+     * 258:https://leetcode.com/problems/add-digits/description/
+     * <p>
+     * 给定一个非负整数，求重复将它各位的数相加后(结果作为下次的数)只剩下一位的数。
+     * </p>
+     * Input: 38
+     * Output: 2
+     * Explanation: The process is like: 3 + 8 = 11, 1 + 1 = 2.
+     */
+    public static int addDigits(int num) {
+        if (num < 10) {
+            return num;
+        }
+        int result = 0;
+        while (true) {
+            result += num % 10;
+            num /= 10;
+            if (num == 0) {
+                if (result < 10) {
+                    break;
+                }
+                num = result;
+                result = 0;
+            }
+        }
+        return result;
     }
 
     private static void swap(int[] array, int i, int j) {

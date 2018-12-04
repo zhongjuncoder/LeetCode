@@ -21,11 +21,11 @@
       <file leaf-file-name="EasyAlgorithm.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/EasyAlgorithm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="1198" column="24" lean-forward="true" selection-start-line="1198" selection-start-column="24" selection-end-line="1198" selection-end-column="24" />
+            <state relative-caret-position="298">
+              <caret line="1261" column="6" selection-start-line="1261" selection-start-column="6" selection-end-line="1261" selection-end-column="6" />
               <folding>
                 <element signature="e#95#96#0" expanded="true" />
-                <element signature="e#131#132#0" expanded="true" />
+                <element signature="e#144#145#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -34,7 +34,7 @@
       <file leaf-file-name="StringBuilder.java" pinned="false" current-in-tab="false">
         <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/java/lang/StringBuilder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
+            <state relative-caret-position="3888">
               <caret line="173" column="25" selection-start-line="173" selection-start-column="25" selection-end-line="173" selection-end-column="25" />
             </state>
           </provider>
@@ -52,7 +52,7 @@
       <file leaf-file-name="String.java" pinned="false" current-in-tab="false">
         <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/java/lang/String.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
+            <state relative-caret-position="50922">
               <caret line="1957" column="18" selection-start-line="1957" selection-start-column="18" selection-end-line="1957" selection-end-column="18" />
               <folding>
                 <element signature="e#121727#121728#0" expanded="true" />
@@ -168,8 +168,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="AndroidView" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -186,7 +187,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -306,7 +306,7 @@
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.141339" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.19766206" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
@@ -316,7 +316,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3995749" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.2943677" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Coverage" order="4" side_tool="true" weight="0.3296875" />
@@ -332,7 +332,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="9" />
+      <option name="time" value="10" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -681,7 +681,7 @@
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/java/lang/String.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
+        <state relative-caret-position="50922">
           <caret line="1957" column="18" selection-start-line="1957" selection-start-column="18" selection-end-line="1957" selection-end-column="18" />
           <folding>
             <element signature="e#121727#121728#0" expanded="true" />
@@ -692,18 +692,18 @@
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/java/lang/StringBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
+        <state relative-caret-position="3888">
           <caret line="173" column="25" selection-start-line="173" selection-start-column="25" selection-end-line="173" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EasyAlgorithm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="1198" column="24" lean-forward="true" selection-start-line="1198" selection-start-column="24" selection-end-line="1198" selection-end-column="24" />
+        <state relative-caret-position="298">
+          <caret line="1261" column="6" selection-start-line="1261" selection-start-column="6" selection-end-line="1261" selection-end-column="6" />
           <folding>
             <element signature="e#95#96#0" expanded="true" />
-            <element signature="e#131#132#0" expanded="true" />
+            <element signature="e#144#145#0" expanded="true" />
           </folding>
         </state>
       </provider>
