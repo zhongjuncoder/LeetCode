@@ -1262,6 +1262,8 @@ public class EasyAlgorithm {
      * Input: 38
      * Output: 2
      * Explanation: The process is like: 3 + 8 = 11, 1 + 1 = 2.
+     *
+     * @see #addDigitsBetter(int)
      */
     public static int addDigits(int num) {
         if (num < 10) {
@@ -1280,6 +1282,13 @@ public class EasyAlgorithm {
             }
         }
         return result;
+    }
+
+    public static int addDigitsBetter(int num) {
+        if (num < 10) {
+            return num;
+        }
+        return num % 9 == 0 ? 9 : num % 9;
     }
 
     private static void swap(int[] array, int i, int j) {

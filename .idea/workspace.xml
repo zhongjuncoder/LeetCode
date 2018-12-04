@@ -21,8 +21,8 @@
       <file leaf-file-name="EasyAlgorithm.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/EasyAlgorithm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="298">
-              <caret line="1261" column="6" selection-start-line="1261" selection-start-column="6" selection-end-line="1261" selection-end-column="6" />
+            <state relative-caret-position="135">
+              <caret line="1265" column="33" selection-start-line="1265" selection-start-column="33" selection-end-line="1265" selection-end-column="33" />
               <folding>
                 <element signature="e#95#96#0" expanded="true" />
                 <element signature="e#144#145#0" expanded="true" />
@@ -306,7 +306,7 @@
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.19766206" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.19766206" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
@@ -699,8 +699,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EasyAlgorithm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="1261" column="6" selection-start-line="1261" selection-start-column="6" selection-end-line="1261" selection-end-column="6" />
+        <state relative-caret-position="135">
+          <caret line="1265" column="33" selection-start-line="1265" selection-start-column="33" selection-end-line="1265" selection-end-column="33" />
           <folding>
             <element signature="e#95#96#0" expanded="true" />
             <element signature="e#144#145#0" expanded="true" />
