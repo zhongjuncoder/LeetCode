@@ -1291,6 +1291,40 @@ public class EasyAlgorithm {
         return num % 9 == 0 ? 9 : num % 9;
     }
 
+    /**
+     * 283:https://leetcode.com/problems/move-zeroes/description/
+     * <p>
+     * 给定一个数组，要求将数组中的0放到后面，其他元素保持原来的顺序放在前面
+     *
+     * @see #moveZeroesBetter(int[])
+     */
+    public void moveZeroes(int[] nums) {
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] == 0) {
+                continue;
+            }
+            for (int j = i - 1; j >= 0; j--) {
+                if (nums[j] != 0) {
+                    break;
+                }
+                swap(nums, j + 1, j);
+            }
+        }
+    }
+
+    public void moveZeroesBetter(int[] nums) {
+        int index = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != 0) {
+                nums[index] = nums[i];
+                index++;
+            }
+        }
+        while (index < nums.length) {
+            nums[index++] = 0;
+        }
+    }
+
     private static void swap(int[] array, int i, int j) {
         int temp = array[i];
         array[i] = array[j];
