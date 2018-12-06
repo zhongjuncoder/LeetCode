@@ -1325,6 +1325,93 @@ public class EasyAlgorithm {
         }
     }
 
+    /**
+     * 748:https://leetcode.com/problems/shortest-completing-word/description/
+     * 给定一个字符串licensePlate，里面包含数字，空格，字母（大小写）。再给定一个字符串数组，里面包含都是小写的字母。
+     * 要求在字符串数组中找到最短能匹配字符串中的字母（忽略大小写）的字符串。如果长度一样，返回第一个出现的。
+     * <p>
+     * Input: licensePlate = "1s3 PSt", words = ["step", "steps", "stripe", "stepple"]
+     * Output: "steps"
+     * Explanation:"1s3PSt"可以看作为“spst”，在words中“step”少了个s不匹配，“steps”刚好全部匹配。
+     * </p>
+     * Input: licensePlate = "1s3 456", words = ["looks", "pest", "stew", "show"]
+     * Output: "pest"
+     * Explanation:只有一个“s”，words中全部匹配，但是“pest”是长度最短的。
+     *
+     * @see #shortestCompletingWordBetter(String, String[])
+     */
+    public String shortestCompletingWord(String licensePlate, String[] words) {
+        String result = null;
+        HashMap<Character, Integer> hashMap = new HashMap<>();
+        StringBuilder stringBuilder = new StringBuilder();
+        for (char c : licensePlate.toCharArray()) {
+            if (Character.isLetter(c)) {
+                stringBuilder.append(Character.toLowerCase(c));
+            }
+        }
+
+        for (String string : words) {
+            if (string.length() >= stringBuilder.length()) {
+                hashMap.clear();
+                for (char c : string.toLowerCase().toCharArray()) {
+                    hashMap.put(c, hashMap.get(c) == null ? 1 : hashMap.get(c) + 1);
+                }
+
+                boolean contain = true;
+                for (char c : stringBuilder.toString().toCharArray()) {
+                    if (!hashMap.containsKey(c) && hashMap.get(c) <= 0) {
+                        contain = false;
+                        break;
+                    } else {
+                        hashMap.put(c, hashMap.get(c) - 1);
+                    }
+                }
+
+                if (contain) {
+                    if (result == null || result.length() > string.length()) {
+                        result = string;
+                    }
+                }
+            }
+        }
+        return result;
+    }
+
+    /**
+     * 利用桶排序的思想，把字母换为int存在数组了，这样就可以直接比较各个字母了
+     */
+    public String shortestCompletingWordBetter(String licensePlate, String[] words) {
+        String result = null;
+        int[] license = getCharToIntArray(licensePlate.toLowerCase().toCharArray());
+        for (String string : words) {
+            if (result == null || result.length() > string.length()) {
+                int[] wordInt = getCharToIntArray(string.toLowerCase().toCharArray());
+                boolean contain = true;
+                for (int i = 0; i < license.length; i++) {
+                    if (license[i] != 0 && wordInt[i] < license[i]) {
+                        contain = false;
+                        break;
+                    }
+                }
+                if (contain) {
+                    result = string;
+                }
+            }
+        }
+        return result;
+    }
+
+    private int[] getCharToIntArray(char[] chars) {
+        int[] array = new int[26];
+        for (char c : chars) {
+            int charToInt = c - 'a';
+            if (charToInt >= 0 && charToInt < 26) {
+                array[charToInt]++;
+            }
+        }
+        return array;
+    }
+
     private static void swap(int[] array, int i, int j) {
         int temp = array[i];
         array[i] = array[j];
