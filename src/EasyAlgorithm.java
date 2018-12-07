@@ -4,7 +4,20 @@ import java.util.*;
 public class EasyAlgorithm {
 
     public static void main(String[] args) {
-        System.out.println(addDigits(38));
+        List<Employee> list = new ArrayList<>();
+        List<Integer> integers = new ArrayList<>(1);
+        integers.add(2);
+        Employee employee = new Employee();
+        employee.id = 1;
+        employee.importance = 2;
+        employee.subordinates = integers;
+        list.add(employee);
+
+        Employee employee1 = new Employee();
+        employee1.id = 2;
+        employee1.importance = 3;
+        list.add(employee1);
+        System.out.println(getImportance(list, 2));
     }
 
     /**
@@ -1410,6 +1423,78 @@ public class EasyAlgorithm {
             }
         }
         return array;
+    }
+
+    static class Employee {
+        // It's the unique id of each node;
+        // unique id of this employee
+        public int id;
+        // the importance value of this employee
+        public int importance;
+        // the id of direct subordinates
+        public List<Integer> subordinates;
+
+        @Override
+        public String toString() {
+            return "Employee{" +
+                    "id=" + id +
+                    ", importance=" + importance +
+                    ", subordinates=" + subordinates +
+                    '}';
+        }
+    }
+
+    /**
+     * 690:https://leetcode.com/problems/employee-importance/description/
+     * <p>
+     * 给定一组员工表，包含员工自己的id和重要性以及下属的id。
+     * 求出给定id的那个员工及其下属员工（比如经理下面是组长，组长下面是开发人员，则整个关系链都算）的重要性之和。
+     * </p>
+     * Input: [[1, 5, [2, 3]], [2, 3, []], [3, 3, []]], 1
+     * Output: 11
+     */
+    public static int getImportance(List<Employee> employees, int id) {
+        HashMap<Integer, Employee> hashMap = new HashMap<>(employees.size());
+        for (Employee employee : employees) {
+            hashMap.put(employee.id, employee);
+        }
+        hashMap.put(-1, new Employee());
+        recursiveGetImportance(hashMap.get(id), hashMap);
+        return hashMap.get(-1).id;
+    }
+
+    private static void recursiveGetImportance(Employee employee, HashMap<Integer, Employee> hashMap) {
+        hashMap.get(-1).id += employee.importance;
+        if (employee.subordinates == null || employee.subordinates.isEmpty()) {
+            return;
+        }
+
+        for (Integer integer : employee.subordinates) {
+            recursiveGetImportance(hashMap.get(integer), hashMap);
+        }
+    }
+
+    /**
+     * 同样的代码，别人打败100%的人，我这最多60%多，是我打开的方式不对？
+     */
+    private int getImportanceBetter(List<Employee> list, int id) {
+        HashMap<Integer, Employee> hashMap = new HashMap<>();
+        for (Employee employee : list) {
+            hashMap.put(employee.id, employee);
+        }
+        return recursiveGetImportance(hashMap, id);
+    }
+
+    /**
+     * 把HashMap作为参数传递只打败了30%多的人，如果把HashMap作为类属性使用则可以打败60%多的人，参数传递开销这么大的吗？
+     */
+    private int recursiveGetImportance(HashMap<Integer, Employee> hashMap, int id) {
+        Employee employee = hashMap.get(id);
+        int result = employee.importance;
+        for (Integer integer : employee.subordinates) {
+            result += recursiveGetImportance(hashMap, integer);
+        }
+        return result;
     }
 
     private static void swap(int[] array, int i, int j) {
