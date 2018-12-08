@@ -1497,6 +1497,48 @@ public class EasyAlgorithm {
         return result;
     }
 
+    /**
+     * 389:https://leetcode.com/problems/find-the-difference/description/
+     * <p>
+     * 给定两个只包含小写字母的字符串s和t，其中t比s多一个字母，要求找出那个字母
+     * </p>
+     * Input:
+     * s = "abcd"
+     * t = "abdce"
+     * Output:'e'
+     */
+    public char findTheDifference(String s, String t) {
+        HashMap<Character, Integer> hashMap = new HashMap<>();
+        for (char c : s.toCharArray()) {
+            int count = hashMap.getOrDefault(c, 0) + 1;
+            hashMap.put(c, count);
+        }
+        for (char c : t.toCharArray()) {
+            if (!hashMap.containsKey(c)) {
+                return c;
+            }
+            if (hashMap.get(c) == 0) {
+                return c;
+            } else {
+                int count = hashMap.get(c) - 1;
+                hashMap.put(c, count);
+            }
+        }
+        return ' ';
+    }
+
+    private char findTheDifferenceBetter(String s, String t) {
+        int sInt = 0, tInt = 0;
+        for (char c : s.toCharArray()) {
+            sInt += c;
+        }
+
+        for (char c : t.toCharArray()) {
+            tInt += c;
+        }
+        return (char) (tInt - sInt);
+    }
+
     private static void swap(int[] array, int i, int j) {
         int temp = array[i];
         array[i] = array[j];
