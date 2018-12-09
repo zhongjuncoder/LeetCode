@@ -1506,6 +1506,8 @@ public class EasyAlgorithm {
      * s = "abcd"
      * t = "abdce"
      * Output:'e'
+     *
+     * @see #findTheDifferenceBetter(String, String)
      */
     public char findTheDifference(String s, String t) {
         HashMap<Character, Integer> hashMap = new HashMap<>();
@@ -1537,6 +1539,27 @@ public class EasyAlgorithm {
             tInt += c;
         }
         return (char) (tInt - sInt);
+    }
+
+    /**
+     * 448:https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/description/
+     * <p>
+     * 给定一个整型数组，数组里面的元素大小为[1,n]，n为数组大小。有些数字出现两次，有些一次，要求找出没出现的数字。
+     */
+    public List<Integer> findDisappearedNumbers(int[] nums) {
+        List<Integer> list = new ArrayList<>();
+        for (int i = 0; i < nums.length; i++) {
+            int value = Math.abs(nums[i]) - 1;
+            if (nums[value] > 0) {
+                nums[value] = -nums[value];     //改为负数标记该位置的数字出现过
+            }
+        }
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] > 0) {
+                list.add(i + 1);
+            }
+        }
+        return list;
     }
 
     private static void swap(int[] array, int i, int j) {
