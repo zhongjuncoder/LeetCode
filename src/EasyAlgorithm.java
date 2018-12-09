@@ -4,20 +4,7 @@ import java.util.*;
 public class EasyAlgorithm {
 
     public static void main(String[] args) {
-        List<Employee> list = new ArrayList<>();
-        List<Integer> integers = new ArrayList<>(1);
-        integers.add(2);
-        Employee employee = new Employee();
-        employee.id = 1;
-        employee.importance = 2;
-        employee.subordinates = integers;
-        list.add(employee);
-
-        Employee employee1 = new Employee();
-        employee1.id = 2;
-        employee1.importance = 3;
-        list.add(employee1);
-        System.out.println(getImportance(list, 2));
+        System.out.println(majorityElementBetter(new int[]{6, 5, 5}));
     }
 
     /**
@@ -1560,6 +1547,39 @@ public class EasyAlgorithm {
             }
         }
         return list;
+    }
+
+    /**
+     * 169:https://leetcode.com/problems/majority-element/description/
+     * <p>
+     * 给定一个整型数组，请找出出现次数大于n/2的那个数（保证存在)
+     */
+    public int majorityElement(int[] nums) {
+        HashMap<Integer, Integer> hashMap = new HashMap<>();
+        int half = nums.length / 2 + nums.length % 2;
+        for (Integer integer : nums) {
+            int count = hashMap.getOrDefault(integer, 0) + 1;
+            if (count == half) {
+                return integer;
+            }
+            hashMap.put(integer, count);
+        }
+        return -1;
+    }
+
+    private static int majorityElementBetter(int[] nums) {
+        int num = nums[0], count = 1;
+        for (int i = 1; i < nums.length; i++) {
+            if (count == 0) {
+                num = nums[i];
+            }
+            if (nums[i] == num) {
+                count++;
+            } else {
+                count--;
+            }
+        }
+        return num;
     }
 
     private static void swap(int[] array, int i, int j) {
