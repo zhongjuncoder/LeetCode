@@ -20,8 +20,8 @@
       <file leaf-file-name="EasyAlgorithm.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/EasyAlgorithm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="343">
-              <caret line="1568" column="33" lean-forward="true" selection-start-line="1568" selection-start-column="33" selection-end-line="1568" selection-end-column="33" />
+            <state relative-caret-position="426">
+              <caret line="1606" selection-start-line="1606" selection-end-line="1612" selection-end-column="22" />
               <folding>
                 <element signature="e#95#96#0" expanded="true" />
                 <element signature="e#131#132#0" expanded="true" />
@@ -135,6 +135,8 @@
       <find>boolean equals(Object o)</find>
       <find>see</find>
       <find>树</find>
+      <find>maxProfitUpgrade</find>
+      <find>maxProfit</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -693,8 +695,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EasyAlgorithm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="1568" column="33" lean-forward="true" selection-start-line="1568" selection-start-column="33" selection-end-line="1568" selection-end-column="33" />
+        <state relative-caret-position="426">
+          <caret line="1606" selection-start-line="1606" selection-end-line="1612" selection-end-column="22" />
           <folding>
             <element signature="e#95#96#0" expanded="true" />
             <element signature="e#131#132#0" expanded="true" />

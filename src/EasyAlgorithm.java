@@ -554,7 +554,8 @@ public class EasyAlgorithm {
      * Output: 0。怎么买都是亏的，所以不买
      * <p>
      * 把每天的股价用坐标系画出来连成线，就会发现其实就是求y值相差最大的两个点的距离。
-     * </p>
+     *
+     * @see #maxProfitUpgrade(int[])
      */
     public int maxProfit(int[] prices) {
         int minPrice = Integer.MAX_VALUE;
@@ -1580,6 +1581,41 @@ public class EasyAlgorithm {
             }
         }
         return num;
+    }
+
+    /**
+     * 122:https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/description/
+     * <p>
+     * 给定一个数组，数组里面的数代表当天的股价，可以多次买入卖出（不能在同一天），求能获得的最大利润
+     *
+     * @see #maxProfitUpgradeBetter(int[])
+     */
+    public int maxProfitUpgrade(int[] prices) {
+        if (prices.length == 0) {
+            return 0;
+        }
+        int result = 0;
+        int min = prices[0];
+        for (int i = 1; i < prices.length; i++) {
+            if (prices[i] > min) {
+                result += prices[i] - min;
+            }
+            min = prices[i];
+        }
+        return result;
+    }
+
+    /**
+     * 比上面节省了一个int
+     */
+    private int maxProfitUpgradeBetter(int[] prices) {
+        int result = 0;
+        for (int i = 1; i < prices.length; i++) {
+            if (prices[i] > prices[i - 1]) {
+                result += prices[i] - prices[i - 1];
+            }
+        }
+        return result;
     }
 
     private static void swap(int[] array, int i, int j) {
