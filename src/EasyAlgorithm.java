@@ -1618,6 +1618,21 @@ public class EasyAlgorithm {
         return result;
     }
 
+    /**
+     * 217:https://leetcode.com/problems/contains-duplicate/description/
+     * <p>
+     * 判断一个整型数组里面是否有重复的元素。
+     */
+    public boolean containsDuplicate(int[] nums) {
+        HashSet<Integer> hashSet = new HashSet<>();
+        for (int num : nums) {
+            if (!hashSet.add(num)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     private static void swap(int[] array, int i, int j) {
         int temp = array[i];
         array[i] = array[j];

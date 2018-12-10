@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ee118b5b-6c2b-4939-a9f4-3ed51cee83d3" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/EasyAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EasyAlgorithm.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -20,11 +21,24 @@
       <file leaf-file-name="EasyAlgorithm.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/EasyAlgorithm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="426">
-              <caret line="1606" selection-start-line="1606" selection-end-line="1612" selection-end-column="22" />
+            <state relative-caret-position="625">
+              <caret line="1629" lean-forward="true" selection-start-line="1629" selection-end-line="1629" />
               <folding>
                 <element signature="e#95#96#0" expanded="true" />
-                <element signature="e#131#132#0" expanded="true" />
+                <element signature="e#172#173#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HashSet.java" pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/java/util/HashSet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="549">
+              <caret line="217" column="19" selection-start-line="217" selection-start-column="19" selection-end-line="217" selection-end-column="19" />
+              <folding>
+                <element signature="e#8033#8034#0" expanded="true" />
+                <element signature="e#8081#8082#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -66,15 +80,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AbstractStringBuilder.java" pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/java/lang/AbstractStringBuilder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="12069">
-              <caret line="479" column="33" selection-start-line="479" selection-start-column="33" selection-end-line="479" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="String.java" pinned="false" current-in-tab="false">
         <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/java/lang/String.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -91,7 +96,7 @@
       <file leaf-file-name="List.java" pinned="false" current-in-tab="false">
         <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/java/util/List.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="837">
+            <state relative-caret-position="6399">
               <caret line="260" column="12" selection-start-line="260" selection-start-column="12" selection-end-line="260" selection-end-column="12" />
             </state>
           </provider>
@@ -167,6 +172,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -184,8 +191,6 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -299,14 +304,13 @@
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="7" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.19766206" />
       <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.19766206" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
@@ -315,8 +319,8 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.2943677" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.2943677" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Coverage" order="4" side_tool="true" weight="0.3296875" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -324,6 +328,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Messages" order="7" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -335,13 +340,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/EasyAlgorithm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12096">
-          <caret line="448" selection-start-line="448" selection-end-line="448" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/SearchAlgorithm.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
@@ -688,18 +686,29 @@
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/java/util/List.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="837">
+        <state relative-caret-position="6399">
           <caret line="260" column="12" selection-start-line="260" selection-start-column="12" selection-end-line="260" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/java/util/HashSet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="549">
+          <caret line="217" column="19" selection-start-line="217" selection-start-column="19" selection-end-line="217" selection-end-column="19" />
+          <folding>
+            <element signature="e#8033#8034#0" expanded="true" />
+            <element signature="e#8081#8082#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EasyAlgorithm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="426">
-          <caret line="1606" selection-start-line="1606" selection-end-line="1612" selection-end-column="22" />
+        <state relative-caret-position="625">
+          <caret line="1629" lean-forward="true" selection-start-line="1629" selection-end-line="1629" />
           <folding>
             <element signature="e#95#96#0" expanded="true" />
-            <element signature="e#131#132#0" expanded="true" />
+            <element signature="e#172#173#0" expanded="true" />
           </folding>
         </state>
       </provider>
