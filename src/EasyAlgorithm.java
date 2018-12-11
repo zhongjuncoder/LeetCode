@@ -4,7 +4,7 @@ import java.util.*;
 public class EasyAlgorithm {
 
     public static void main(String[] args) {
-        System.out.println(majorityElementBetter(new int[]{6, 5, 5}));
+        rotatedDigits(100);
     }
 
     /**
@@ -1631,6 +1631,49 @@ public class EasyAlgorithm {
             }
         }
         return false;
+    }
+
+    /**
+     * 788:https://leetcode.com/problems/rotated-digits/description/
+     * <p>
+     * 给定一个整数N，求出在[1,N]之中是“good”的数是多少。“good”的判断为，一个数的每一位如果是0,1,8则不变，2和5互相翻转，6和9互相翻转。
+     * 如果包含其他的数（3,4,7）则这个数不是“good”，如果翻转后没变则也不是”good“
+     * </p>
+     * Input: 10
+     * Output: 4
+     * Explanation:
+     * There are four good numbers in the range [1, 10] : 2, 5, 6, 9.
+     * Note that 1 and 10 are not good numbers, since they remain unchanged after rotating.
+     */
+    public static int rotatedDigits(int N) {
+        // TODO: 2018/12/11 better
+        int result = 0;
+        for (int i = 1; i <= N; i++) {
+            int temp = i;
+            int rotate = 0;
+            while (temp > 0) {
+                int digit = temp % 10;
+                if (digit == 3 || digit == 4 || digit == 7) {
+                    rotate = i;
+                    break;
+                } else if (digit == 2) {
+                    digit = 5;
+                } else if (digit == 5) {
+                    digit = 2;
+                } else if (digit == 6) {
+                    digit = 9;
+                } else if (digit == 9) {
+                    digit = 6;
+                }
+                rotate = rotate * 10 + digit;
+                temp /= 10;
+            }
+            System.out.println(rotate + "  :" + i);
+            if (rotate != i) {
+                result += 1;
+            }
+        }
+        return result;
     }
 
     private static void swap(int[] array, int i, int j) {
