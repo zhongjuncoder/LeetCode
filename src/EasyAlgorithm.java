@@ -1646,34 +1646,53 @@ public class EasyAlgorithm {
      * Note that 1 and 10 are not good numbers, since they remain unchanged after rotating.
      */
     public static int rotatedDigits(int N) {
-        // TODO: 2018/12/11 better
+        // TODO: 2018/12/11 finish
         int result = 0;
+        int[] ints = new int[N + 1];
         for (int i = 1; i <= N; i++) {
-            int temp = i;
-            int rotate = 0;
-            while (temp > 0) {
-                int digit = temp % 10;
-                if (digit == 3 || digit == 4 || digit == 7) {
-                    rotate = i;
-                    break;
-                } else if (digit == 2) {
-                    digit = 5;
-                } else if (digit == 5) {
-                    digit = 2;
-                } else if (digit == 6) {
-                    digit = 9;
-                } else if (digit == 9) {
-                    digit = 6;
+            if (i < 10) {
+                if (i == 2) {
+                    ints[i] = 5;
+                } else if (i == 5) {
+                    ints[i] = 2;
+                } else if (i == 6) {
+                    ints[i] = 9;
+                } else if (i == 9) {
+                    ints[i] = 6;
+                } else {
+                    ints[i] = i;
                 }
-                rotate = rotate * 10 + digit;
-                temp /= 10;
-            }
-            System.out.println(rotate + "  :" + i);
-            if (rotate != i) {
-                result += 1;
             }
         }
         return result;
+    }
+
+    /**
+     * 349:https://leetcode.com/problems/intersection-of-two-arrays/description/
+     * <p>
+     * 给定两个数组，求出它们的交集（不能有重复元素）
+     * </p>
+     * Input: nums1 = [4,9,5], nums2 = [9,4,9,8,4]
+     * Output: [9,4]
+     */
+    public int[] intersection(int[] nums1, int[] nums2) {
+        HashSet<Integer> hashSet = new HashSet<>();
+        HashSet<Integer> result = new HashSet<>();
+        for (Integer integer : nums1) {
+            hashSet.add(integer);
+        }
+
+        for (Integer integer : nums2) {
+            if (hashSet.contains(integer)) {
+                result.add(integer);
+            }
+        }
+        int[] ints = new int[result.size()];
+        int index = 0;
+        for (Integer integer : result) {
+            ints[index++] = integer;
+        }
+        return ints;
     }
 
     private static void swap(int[] array, int i, int j) {
