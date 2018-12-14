@@ -1,10 +1,12 @@
 
+import javafx.util.Pair;
+
 import java.util.*;
 
 public class EasyAlgorithm {
 
     public static void main(String[] args) {
-        rotatedDigits(100);
+        setZeroes(new int[][]{{1, 1, 1}, {1, 0, 1}, {1, 1, 1,}});
     }
 
     /**
@@ -1693,6 +1695,32 @@ public class EasyAlgorithm {
             ints[index++] = integer;
         }
         return ints;
+    }
+
+    /**
+     * 72:https://leetcode.com/problems/set-matrix-zeroes/description/
+     * <p>
+     * 给定一个二维整型数组，如果某个元素为0，则把与该元素同行列的元素都设置为0
+     */
+    public static void setZeroes(int[][] matrix) {
+        List<Pair<Integer, Integer>> list = new ArrayList<>();
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                if (matrix[i][j] == 0) {
+                    list.add(new Pair<>(i, j));
+                }
+            }
+        }
+
+        for (Pair<Integer, Integer> pair : list) {
+            for (int i = 0; i < matrix.length; i++) {
+                matrix[i][pair.getValue()] = 0;
+            }
+            for (int i = 0; i < matrix[0].length; i++) {
+                matrix[pair.getKey()][i] = 0;
+            }
+        }
+
     }
 
     private static void swap(int[] array, int i, int j) {
