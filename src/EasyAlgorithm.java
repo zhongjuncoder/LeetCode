@@ -1701,6 +1701,7 @@ public class EasyAlgorithm {
      * 72:https://leetcode.com/problems/set-matrix-zeroes/description/
      * <p>
      * 给定一个二维整型数组，如果某个元素为0，则把与该元素同行列的元素都设置为0
+     * todo better
      */
     public static void setZeroes(int[][] matrix) {
         List<Pair<Integer, Integer>> list = new ArrayList<>();
@@ -1721,6 +1722,38 @@ public class EasyAlgorithm {
             }
         }
 
+    }
+
+    /**
+     * 387:https://leetcode.com/problems/first-unique-character-in-a-string/description/
+     * <p>
+     * 给一个字符串，要求找出第一个没有重复的字母的下标
+     * </p>
+     * s = "leetcode"
+     * return 0.
+     * <p>
+     * s = "loveleetcode",
+     * return 2.
+     * <p>
+     * todo better
+     */
+    public int firstUniqChar(String s) {
+        HashMap<Character, Integer> hashMap = new HashMap<>();
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (hashMap.containsKey(c)) {
+                hashMap.put(c, s.length());
+            } else {
+                hashMap.put(c, i);
+            }
+        }
+        int min = s.length();
+        for (Integer integer : hashMap.values()) {
+            if (integer < min) {
+                min = integer;
+            }
+        }
+        return min == s.length() ? -1 : min;
     }
 
     private static void swap(int[] array, int i, int j) {
