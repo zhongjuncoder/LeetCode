@@ -14,7 +14,9 @@ import java.util.Calendar;
 public class SortAlgorithm {
 
     public static void main(String[] args) {
-
+        int[] number = new int[]{1, 1, 2, 0, 9, 3, 12, 7, 8, 3, 4, 65, 22};
+        bubbleSort(number);
+        System.out.println(Arrays.toString(number));
     }
 
     /**
@@ -22,21 +24,26 @@ public class SortAlgorithm {
      * <p>
      * 依次比较相邻的两个元素，如果满足需求就交换。每遍历一次就能把最大/最小的那个元素放在后面合适的位置
      * <p>
-     * 当元素本来就是排好序的情况下只需要遍历一次，最好时间复杂度是O(1)
+     * 当元素本来就是排好序的情况下只需要遍历一次，最好时间复杂度是O(n)
      * </p>
-     * 当元素都是逆序的时候需要比较(n*(n-1))/2次，n*(n-1)*(n-2)*...*1，所以最差的时间复杂度是O(n^2)
+     * 当元素都是逆序的时候需要比较(n*(n-1))/2次，(n-1)+(n-2)+...+1，所以最差的时间复杂度是O(n^2)
      * <p>
      * 当有相邻的两个元素大小相等的时候，我们不做交换，相同大小的元素在排序后不会改变顺序，所以冒泡排序是稳定的排序算法
      * <p>
-     * [4,5,2,1,2,3],排序后[1,2,2,3,4,5]，原本在2位置的2是在4位置上的2的前面的，排序后还是在他前面就表示是稳定排序
+     * [4,5,2,1,2,3],排序后[1,2,2,3,4,5]，原本在index==2位置的2是在index==4位置上的2的前面的，排序后还是在它前面就表示是稳定排序
      */
     private static void bubbleSort(int[] numbers) {
-        for (int i = 0, length = numbers.length; i < length; i++) {
-            boolean haveSwap = false;
-            for (int j = 0; j < length - 1 - i; j++) {
+        //记录最后一次发生交换的位置，它后面的数据都是有序了的，则不再遍历
+        //例如[5,4,3,2,1,0,6,7,8,9],遍历一次后最后一次交换的位置为index==4和index==5，则index==6后都是有序了的，下次只需要遍历index==0到index==4就行
+        int endIndex = numbers.length - 1;
+        for (int i = 0, length = numbers.length - 1; i < length; i++) {
+            boolean haveSwap = false;           //如果遍历完一遍后没有交换元素，则整个数组已经是有序了的
+            int temp = endIndex;
+            for (int j = 0; j < temp; j++) {
                 if (numbers[j] > numbers[j + 1]) {
                     swap(numbers, j, j + 1);
                     haveSwap = true;
+                    endIndex = j;
                 }
             }
             if (!haveSwap) {
