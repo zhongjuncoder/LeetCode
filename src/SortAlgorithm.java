@@ -12,8 +12,8 @@ import java.util.Arrays;
 public class SortAlgorithm {
 
     public static void main(String[] args) {
-        int[] number = new int[]{1, 1, 2, 0, 9, 3, 12, 7, 2, 3, 4, 21, 22};
-        bubbleSort(number);
+        int[] number = new int[]{3, 1, 2};
+        quickSort(number, 0, number.length - 1);
         System.out.println(Arrays.toString(number));
 
         int[] number2 = new int[]{1, 1, 2, 0, 9, 3, 12, 7, 2, 3, 4, 21, 22};
@@ -97,6 +97,38 @@ public class SortAlgorithm {
                 break;
             }
         }
+    }
+
+    /**
+     *
+     * @param startIndex
+     * @param endIndex
+     */
+    private static void quickSort(int[] numbers, int startIndex, int endIndex) {
+        if (startIndex >= endIndex) {
+            return;
+        }
+
+        int key = numbers[startIndex];
+        int left = startIndex;          //不要加1
+        int right = endIndex;
+        while (left < right) {
+            while (left < right && numbers[right] >= key) { //在右边找到比基准元素小的位置
+                right--;
+            }
+
+            while (left < right && numbers[left] <= key) {  //在左边找到比基准元素大的位置
+                left++;
+            }
+
+            if (left < right) {
+                swap(numbers,left,right);                   //把比基准元素小的放左边，大的放右边
+            }
+        }
+
+        swap(numbers, startIndex, left);                    //把基准元素放到分割点
+        quickSort(numbers, startIndex, left - 1);
+        quickSort(numbers,right+1,endIndex);
     }
 
     /**
