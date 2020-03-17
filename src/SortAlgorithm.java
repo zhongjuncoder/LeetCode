@@ -1,6 +1,4 @@
-import java.text.DecimalFormat;
 import java.util.Arrays;
-import java.util.Calendar;
 
 /**
  * 有序度是指数组中具有有序关系的元素对的个数，即是a[i]<a[j]&&i<j。在{4,5,6,3,2,1}中有序度为3，有序的元素对为(4,5),(4,6),(5,6)
@@ -14,9 +12,13 @@ import java.util.Calendar;
 public class SortAlgorithm {
 
     public static void main(String[] args) {
-        int[] number = new int[]{1, 1, 2, 0, 9, 3, 12, 7, 8, 3, 4, 65, 22};
+        int[] number = new int[]{1, 1, 2, 0, 9, 3, 12, 7, 2, 3, 4, 21, 22};
         bubbleSort(number);
         System.out.println(Arrays.toString(number));
+
+        int[] number2 = new int[]{1, 1, 2, 0, 9, 3, 12, 7, 2, 3, 4, 21, 22};
+        bubbleSortCocktail(number2);
+        System.out.println(Arrays.toString(number2));
     }
 
     /**
@@ -36,10 +38,12 @@ public class SortAlgorithm {
         //记录最后一次发生交换的位置，它后面的数据都是有序了的，则不再遍历
         //例如[5,4,3,2,1,0,6,7,8,9],遍历一次后最后一次交换的位置为index==4和index==5，则index==6后都是有序了的，下次只需要遍历index==0到index==4就行
         int endIndex = numbers.length - 1;
-        for (int i = 0, length = numbers.length - 1; i < length; i++) {
+        int count = 0;
+        for (int i = 0; i < endIndex; i++) {
             boolean haveSwap = false;           //如果遍历完一遍后没有交换元素，则整个数组已经是有序了的
             int temp = endIndex;
             for (int j = 0; j < temp; j++) {
+                count++;
                 if (numbers[j] > numbers[j + 1]) {
                     swap(numbers, j, j + 1);
                     haveSwap = true;
@@ -48,6 +52,48 @@ public class SortAlgorithm {
             }
             if (!haveSwap) {
                 //如果某次没有数据交换说明已经排序完成了
+                break;
+            }
+        }
+        System.out.println(count);
+    }
+
+    /**
+     * 鸡尾酒排序
+     * <p>
+     * 在上面的基础上先从左往右排序，再从右往左排序，如此往复。如果数组左边一部分是有序的，则可以减少比较的次数
+     * </p>
+     */
+    private static void bubbleSortCocktail(int[] numbers) {
+        int startIndex = 0;
+        int endIndex = numbers.length - 1;
+        while (true) {
+            boolean stop = true;
+            int tempStart = startIndex;
+            int tempEnd = endIndex;
+
+            for (int i = tempStart; i < tempEnd; i++) {
+                if (numbers[i] > numbers[i + 1]) {
+                    swap(numbers, i, i + 1);
+                    stop = false;
+                    endIndex = i;
+                }
+            }
+            if (stop) {
+                break;
+            }
+
+            stop = true;
+            tempStart = startIndex;
+            tempEnd = endIndex;
+            for (int i = tempEnd; i > tempStart; i--) {
+                if (numbers[i] < numbers[i - 1]) {
+                    swap(numbers, i, i - 1);
+                    startIndex = i - 1;
+                    stop = false;
+                }
+            }
+            if (stop) {
                 break;
             }
         }
