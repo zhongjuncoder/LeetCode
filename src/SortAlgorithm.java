@@ -19,7 +19,6 @@ public class SortAlgorithm {
         System.out.println(Arrays.toString(number));
 
         int[] number2 = new int[]{1, 1, 2, 0, 9, 3, 12, 7, 2, 3, 4, 21, 22};
-        findMaxK(number2, 5);
         System.out.println(Arrays.toString(number2));
     }
 
@@ -190,57 +189,6 @@ public class SortAlgorithm {
     }
 
     /**
-     * 找第K大的元素
-     */
-    private static void findMaxK(int[] numbers, int k) {
-        if (k <= 0) {
-            System.out.println("没有找到");
-            return;
-        }
-        findMaxK(numbers, k, 0, numbers.length - 1);
-    }
-
-    /**
-     * 利用快排的思想（从大到小排序），选择一个基准元素，让基准元素左边的都大于等于它，右边的都小于等于它
-     * 这样交换后基准元素就是第index+1大的元素。接着判断index+1和k的大小继续查找
-     */
-    private static void findMaxK(int[] numbers, int k, int startIndex, int endIndex) {
-        if (startIndex > endIndex) {
-            System.out.println("没有找到");
-            return;
-        }
-
-        int key = numbers[startIndex];
-        int start = startIndex;
-        int end = endIndex;
-
-        while (start < end) {
-
-            while (start < end && numbers[end] <= key) {
-                end--;
-            }
-
-            while (start < end && numbers[start] >= key) {
-                start++;
-            }
-
-            swap(numbers, start, end);
-        }
-
-        swap(numbers, start, startIndex);
-
-        int index = start + 1;
-        if (index == k) {
-            System.out.println("第" + k + "大的元素为" + numbers[start]);
-        } else if (index < k) {
-            findMaxK(numbers, k, start + 1, endIndex);
-        } else {
-            findMaxK(numbers, k, startIndex, start - 1);
-        }
-
-    }
-
-    /**
      * 选择排序
      * <p>
      * 将数组分为已排序和未排序两部分，每次从后面的未排序中选择最小/最大的元素和未排序的第一个交换
@@ -321,7 +269,7 @@ public class SortAlgorithm {
     /**
      * 将数组中两个位置的值交换
      */
-    private static void swap(int[] numbers, int positionA, int positionB) {
+    public static void swap(int[] numbers, int positionA, int positionB) {
         int temp = numbers[positionA];
         numbers[positionA] = numbers[positionB];
         numbers[positionB] = temp;

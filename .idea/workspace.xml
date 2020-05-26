@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ee118b5b-6c2b-4939-a9f4-3ed51cee83d3" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/AlgorithmUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/TreeAlgorithm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LeetCode/SearchAlgorithm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LeetCode/SearchAlgorithm.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/LeetCode/SortAlgorithm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LeetCode/SortAlgorithm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SearchAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SearchAlgorithm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SortAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SortAlgorithm.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -38,7 +42,7 @@
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
-  <component name="RunManager" selected="Application.SortAlgorithm">
+  <component name="RunManager" selected="Application.TreeAlgorithm">
     <configuration name="EasyAlgorithm" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="EasyAlgorithm" />
       <module name="LeetCode" />
@@ -65,6 +69,14 @@
     </configuration>
     <configuration name="SortAlgorithm" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="SortAlgorithm" />
+      <module name="LeetCode" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TreeAlgorithm" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="TreeAlgorithm" />
       <module name="LeetCode" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
@@ -98,13 +110,15 @@
       <item itemvalue="Application.MediumAlgorithm" />
       <item itemvalue="Application.SearchAlgorithm" />
       <item itemvalue="Application.SortAlgorithm" />
+      <item itemvalue="Application.TreeAlgorithm" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.TreeAlgorithm" />
+        <item itemvalue="Application.SearchAlgorithm" />
         <item itemvalue="Application.SortAlgorithm" />
         <item itemvalue="Application.EasyAlgorithm" />
         <item itemvalue="Application.MediumAlgorithm" />
-        <item itemvalue="Application.SearchAlgorithm" />
       </list>
     </recent_temporary>
   </component>
@@ -138,42 +152,46 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584368111870" />
+    <state x="765" y="236" key="#com.intellij.ide.util.MemberChooser" timestamp="1590464002919">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="765" y="236" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1590464002919" />
     <state x="806" y="409" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1584367497540">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="806" y="409" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584367497540" />
-    <state width="1877" height="185" key="GridCell.Tab.0.bottom" timestamp="1590459944832">
+    <state width="1877" height="248" key="GridCell.Tab.0.bottom" timestamp="1590464807066">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="185" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1590459944832" />
-    <state width="1877" height="185" key="GridCell.Tab.0.center" timestamp="1590459944832">
+    <state width="1877" height="248" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1590464807066" />
+    <state width="1877" height="248" key="GridCell.Tab.0.center" timestamp="1590464807066">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="185" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1590459944832" />
-    <state width="1877" height="185" key="GridCell.Tab.0.left" timestamp="1590459944832">
+    <state width="1877" height="248" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1590464807066" />
+    <state width="1877" height="248" key="GridCell.Tab.0.left" timestamp="1590464807066">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="185" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1590459944832" />
-    <state width="1877" height="185" key="GridCell.Tab.0.right" timestamp="1590459944832">
+    <state width="1877" height="248" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1590464807066" />
+    <state width="1877" height="248" key="GridCell.Tab.0.right" timestamp="1590464807066">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="185" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1590459944832" />
-    <state width="1877" height="248" key="GridCell.Tab.1.bottom" timestamp="1590425217855">
+    <state width="1877" height="248" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1590464807066" />
+    <state width="1877" height="248" key="GridCell.Tab.1.bottom" timestamp="1590464807066">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="248" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1590425217855" />
-    <state width="1877" height="248" key="GridCell.Tab.1.center" timestamp="1590425217855">
+    <state width="1877" height="248" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1590464807066" />
+    <state width="1877" height="248" key="GridCell.Tab.1.center" timestamp="1590464807066">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="248" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1590425217855" />
-    <state width="1877" height="248" key="GridCell.Tab.1.left" timestamp="1590425217855">
+    <state width="1877" height="248" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1590464807066" />
+    <state width="1877" height="248" key="GridCell.Tab.1.left" timestamp="1590464807066">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="248" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1590425217855" />
-    <state width="1877" height="248" key="GridCell.Tab.1.right" timestamp="1590425217855">
+    <state width="1877" height="248" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1590464807066" />
+    <state width="1877" height="248" key="GridCell.Tab.1.right" timestamp="1590464807066">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="248" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1590425217855" />
+    <state width="1877" height="248" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1590464807066" />
     <state x="461" y="162" key="SettingsEditor" timestamp="1590421022969">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -182,5 +200,19 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="640" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590457953696" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/TreeAlgorithm.java</url>
+          <line>59</line>
+          <properties class="TreeAlgorithm" method="postOrder">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
