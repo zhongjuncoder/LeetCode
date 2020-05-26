@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 
 /**
  * 有序度是指数组中具有有序关系的元素对的个数，即是a[i]<a[j]&&i<j。在{4,5,6,3,2,1}中有序度为3，有序的元素对为(4,5),(4,6),(5,6)
@@ -12,13 +14,61 @@ import java.util.Arrays;
 public class SortAlgorithm {
 
     public static void main(String[] args) {
-        int[] number = new int[]{3, 1, 2};
-        quickSort(number, 0, number.length - 1);
+        int[] number = new int[]{31, 19, 5, 3};
+        //insertSort(number);
         System.out.println(Arrays.toString(number));
 
         int[] number2 = new int[]{1, 1, 2, 0, 9, 3, 12, 7, 2, 3, 4, 21, 22};
-        bubbleSortCocktail(number2);
+        findMaxK(number2, 5);
         System.out.println(Arrays.toString(number2));
+    }
+
+    /**
+     * 插入排序
+     * <p>
+     * 将数组分为已排序和未排序的两部分，每次从未排序中取一个元素,把自己插入到已排序的合适位置（需要原本在它前面的元素往后移动为它留出那个位置）
+     * <p>
+     * 当数组是已排序的情况下，最好时间复杂度为O(n)
+     * <p>
+     * 当数组是倒序的情况下，最后时间复杂度为O(n^2)
+     * <p>
+     * 插入排序是稳定排序
+     *
+     * @param numbers {4, 5, 6, 3, 2, 1}
+     */
+    private static void insertSort(int[] numbers) {
+        int count = 0;
+        for (int i = 1; i < numbers.length; i++) {
+            for (int j = i; j > 0; j--) {
+                count++;
+                if (numbers[j] < numbers[j - 1]) {
+                    swap(numbers, j, j - 1);
+                } else {
+                    break;
+                }
+            }
+        }
+        System.out.println(count);
+    }
+
+    /**
+     * 不是每次都两个数进行交换，而是先把大数都往后移动，再把小的数移动到合适的位置
+     */
+    private static void insertSortMinSwap(int[] numbers) {
+        int count = 0;
+        for (int i = 1; i < numbers.length; i++) {
+            int temp = numbers[i];
+            for (int j = i; j > 0; j--) {
+                count++;
+                if (temp < numbers[j - 1]) {
+                    numbers[j] = numbers[j - 1];
+                } else {
+                    numbers[j] = temp;
+                    break;
+                }
+            }
+        }
+        System.out.println(count);
     }
 
     /**
@@ -38,12 +88,10 @@ public class SortAlgorithm {
         //记录最后一次发生交换的位置，它后面的数据都是有序了的，则不再遍历
         //例如[5,4,3,2,1,0,6,7,8,9],遍历一次后最后一次交换的位置为index==4和index==5，则index==6后都是有序了的，下次只需要遍历index==0到index==4就行
         int endIndex = numbers.length - 1;
-        int count = 0;
         for (int i = 0; i < endIndex; i++) {
             boolean haveSwap = false;           //如果遍历完一遍后没有交换元素，则整个数组已经是有序了的
             int temp = endIndex;
             for (int j = 0; j < temp; j++) {
-                count++;
                 if (numbers[j] > numbers[j + 1]) {
                     swap(numbers, j, j + 1);
                     haveSwap = true;
@@ -55,7 +103,6 @@ public class SortAlgorithm {
                 break;
             }
         }
-        System.out.println(count);
     }
 
     /**
@@ -100,9 +147,20 @@ public class SortAlgorithm {
     }
 
     /**
-     *
-     * @param startIndex
-     * @param endIndex
+     * 快速排序
+     * <p>
+     * 选择一个基准元素，从数组从右往左遍历找到比基准元素小的位置，再从数组从左往右找到比基准元素大的位置，接着交换两个位置的元素。
+     * </p>
+     * 循环直到两边的位置重合，再把基准元素和重合位置的元素交换，这样在基准元素左边的都是小于它的，右边的都是大于它的。
+     * <p>
+     * 时间复杂度：T(1)=C（常数）         n=1
+     * T(n)=2*T(n/2)  n>1
+     * <p>
+     * 推导：      T(n)=2*(2*T(n/4))=4*T(n/4)
+     * =2*(2*(2*T(n/8)))=8*T(n/8)
+     * =2^k * T(n/2^k)
+     * 当T(n/2^k)=T(1)时，即n/2^k=1，所以k=log2 n
+     * </p>
      */
     private static void quickSort(int[] numbers, int startIndex, int endIndex) {
         if (startIndex >= endIndex) {
@@ -122,50 +180,70 @@ public class SortAlgorithm {
             }
 
             if (left < right) {
-                swap(numbers,left,right);                   //把比基准元素小的放左边，大的放右边
+                swap(numbers, left, right);                   //把比基准元素小的放左边，大的放右边
             }
         }
 
         swap(numbers, startIndex, left);                    //把基准元素放到分割点
         quickSort(numbers, startIndex, left - 1);
-        quickSort(numbers,right+1,endIndex);
+        quickSort(numbers, right + 1, endIndex);
     }
 
     /**
-     * 插入排序
-     * <p>
-     * 将数组分为已排序和未排序的两部分，每次从未排序中取一个元素,把自己插入到已排序的合适位置（需要原本在它前面的元素往后移动为它留出那个位置）
-     * <p>
-     * 当数组是已排序的情况下，最好时间复杂度为O(n)
-     * <p>
-     * 当数组是倒序的情况下，最后时间复杂度为O(n^2)
-     * <p>
-     * 插入排序是稳定排序
-     *
-     * @param numbers {4, 5, 6, 3, 2, 1}
+     * 找第K大的元素
      */
-    private static void insertSort(int[] numbers) {
-        for (int i = 1; i < numbers.length; i++) {
-            int j = i - 1;          //i==3,j==2的时候
-            for (; j >= 0; j--) {
-                if (numbers[j] > numbers[i]) {
-                    numbers[j + 1] = numbers[j]; //依次把6,5,4往后移动
-                } else {
-                    break;
-                }
-            }
-            if (j + 1 != i) {
-                numbers[j + 1] = numbers[i];      //再把3放到0的位置上
-            }
+    private static void findMaxK(int[] numbers, int k) {
+        if (k <= 0) {
+            System.out.println("没有找到");
+            return;
         }
-        //这样需要移动3次，和3元素放到合适的位置，其实只进行了4次赋值操作。
-        //而如果是进行冒泡排序，则需要进行3次交换操作，即进行了3*3次赋值操作，所以插入排序是优于冒泡排序的
+        findMaxK(numbers, k, 0, numbers.length - 1);
+    }
+
+    /**
+     * 利用快排的思想（从大到小排序），选择一个基准元素，让基准元素左边的都大于等于它，右边的都小于等于它
+     * 这样交换后基准元素就是第index+1大的元素。接着判断index+1和k的大小继续查找
+     */
+    private static void findMaxK(int[] numbers, int k, int startIndex, int endIndex) {
+        if (startIndex > endIndex) {
+            System.out.println("没有找到");
+            return;
+        }
+
+        int key = numbers[startIndex];
+        int start = startIndex;
+        int end = endIndex;
+
+        while (start < end) {
+
+            while (start < end && numbers[end] <= key) {
+                end--;
+            }
+
+            while (start < end && numbers[start] >= key) {
+                start++;
+            }
+
+            swap(numbers, start, end);
+        }
+
+        swap(numbers, start, startIndex);
+
+        int index = start + 1;
+        if (index == k) {
+            System.out.println("第" + k + "大的元素为" + numbers[start]);
+        } else if (index < k) {
+            findMaxK(numbers, k, start + 1, endIndex);
+        } else {
+            findMaxK(numbers, k, startIndex, start - 1);
+        }
+
     }
 
     /**
      * 选择排序
      * <p>
-     * 和插入排序一样，都是将元素分为已排序和未排序的两部分。不过它是每次从未排序的那部分中选择满足需求的元素，然后放在已排序那里
+     * 将数组分为已排序和未排序两部分，每次从后面的未排序中选择最小/最大的元素和未排序的第一个交换
      * <p>
      * 因为无论数组原本是有序还是没序，都需要从未排序的部分选择，所以最好和最坏的时间复杂度都是O(n^2)
      * <p>
