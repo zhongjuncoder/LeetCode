@@ -36,16 +36,22 @@ public class TreeAlgorithm {
         tree6.left = tree12;
         tree6.right = tree13;
 
-        tree7.left = tree14;
+        tree8.left = tree14;
 
-        levelTraversal(tree1);
+
+        fineTreeLevelMax(tree1);
+
+        exchangeTree(tree1);
+
+        fineTreeLevelMax(tree1);
+
     }
 
     /**
      * 前序遍历
      */
     private static void preSort(Tree tree) {
-        if (tree==null) {
+        if (tree == null) {
             return;
         }
 
@@ -58,7 +64,7 @@ public class TreeAlgorithm {
      * 后序遍历
      */
     private static void postOrder(Tree tree) {
-        if (tree==null) {
+        if (tree == null) {
             return;
         }
 
@@ -77,8 +83,8 @@ public class TreeAlgorithm {
         LinkedList<Tree> linkedList = new LinkedList<>();
         linkedList.add(tree);
         while (!linkedList.isEmpty()) {
-            Tree temp = linkedList.pop();
-            System.out.println(temp.value+" ");
+            Tree temp = linkedList.removeFirst();
+            System.out.println(temp.value + " ");
 
             if (temp.left != null) {
                 linkedList.add(temp.left);
@@ -88,6 +94,70 @@ public class TreeAlgorithm {
                 linkedList.add(temp.right);
             }
         }
+    }
+
+    /**
+     * 找出每层最大的节点
+     */
+    private static void fineTreeLevelMax(Tree tree) {
+        if (tree == null) {
+            return;
+        }
+
+        LinkedList<Tree> linkedList = new LinkedList<>();
+
+        linkedList.add(tree);
+        while (!linkedList.isEmpty()) {
+            int size = linkedList.size();
+            int max = linkedList.get(0).value;
+
+            for (int i = 0; i < size; i++) {
+                Tree temp = linkedList.removeFirst();
+                System.out.print(temp.value+"  ");
+                if (temp.value > max) {
+                    max = temp.value;
+                }
+
+                if (temp.left != null) {
+                    linkedList.add(temp.left);
+                }
+
+                if (temp.right != null) {
+                    linkedList.add(temp.right);
+                }
+            }
+
+            System.out.println();
+            //System.out.println(max);
+        }
+    }
+
+    /**
+     * 获取树的深度
+     */
+    private static int getTreeDepth(Tree tree) {
+        if (tree == null) {
+            return 0;
+        }
+        int leftDepth = getTreeDepth(tree.left);
+        int rightDepth = getTreeDepth(tree.right);
+        return Math.max(leftDepth, rightDepth) + 1;
+    }
+
+    /**
+     * 交换树的左右节点
+     */
+    private static void exchangeTree(Tree tree) {
+        if (tree == null) {
+            return;
+        }
+
+        Tree temp = tree.left;
+        tree.left = tree.right;
+        tree.right = temp;
+
+        exchangeTree(tree.left);
+        exchangeTree(tree.right);
     }
 
     private static class Tree {

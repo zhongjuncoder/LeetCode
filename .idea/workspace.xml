@@ -2,13 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ee118b5b-6c2b-4939-a9f4-3ed51cee83d3" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/AlgorithmUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TreeAlgorithm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/LinkedAlgorithm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tree/Tree.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tree/TreeNode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tree/easy/minimumHeightTree.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LeetCode/SearchAlgorithm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LeetCode/SearchAlgorithm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LeetCode/SortAlgorithm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LeetCode/SortAlgorithm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SearchAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SearchAlgorithm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SortAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SortAlgorithm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LeetCode/TreeAlgorithm$Tree.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LeetCode/TreeAlgorithm$Tree.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LeetCode/TreeAlgorithm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LeetCode/TreeAlgorithm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TreeAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TreeAlgorithm.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +23,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Kotlin Class" />
         <option value="Class" />
       </list>
     </option>
@@ -38,39 +41,38 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
-  <component name="RunManager" selected="Application.TreeAlgorithm">
-    <configuration name="EasyAlgorithm" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="EasyAlgorithm" />
+  <component name="RunManager" selected="Application.Tree">
+    <configuration name="LinkedAlgorithm" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="LinkedAlgorithm" />
       <module name="LeetCode" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MediumAlgorithm" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="MediumAlgorithm" />
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Test" />
       <module name="LeetCode" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SearchAlgorithm" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="SearchAlgorithm" />
+    <configuration name="Tree" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="tree.Tree" />
       <module name="LeetCode" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SortAlgorithm" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="SortAlgorithm" />
-      <module name="LeetCode" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tree.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -85,6 +87,20 @@
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="minimumHeightTree" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="tree.easy.minimumHeightTree" />
+      <module name="LeetCode" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tree.easy.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -106,19 +122,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.EasyAlgorithm" />
-      <item itemvalue="Application.MediumAlgorithm" />
-      <item itemvalue="Application.SearchAlgorithm" />
-      <item itemvalue="Application.SortAlgorithm" />
       <item itemvalue="Application.TreeAlgorithm" />
+      <item itemvalue="Application.LinkedAlgorithm" />
+      <item itemvalue="Application.Test" />
+      <item itemvalue="Application.minimumHeightTree" />
+      <item itemvalue="Application.Tree" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Tree" />
+        <item itemvalue="Application.minimumHeightTree" />
+        <item itemvalue="Application.Test" />
+        <item itemvalue="Application.LinkedAlgorithm" />
         <item itemvalue="Application.TreeAlgorithm" />
-        <item itemvalue="Application.SearchAlgorithm" />
-        <item itemvalue="Application.SortAlgorithm" />
-        <item itemvalue="Application.EasyAlgorithm" />
-        <item itemvalue="Application.MediumAlgorithm" />
       </list>
     </recent_temporary>
   </component>
@@ -148,71 +164,29 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584368111870">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="1085" y="410" key="#com.intellij.ide.util.MemberChooser" timestamp="1610637330341">
+      <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584368111870" />
-    <state x="765" y="236" key="#com.intellij.ide.util.MemberChooser" timestamp="1590464002919">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="1085" y="410" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1400@0.0.2560.1400" timestamp="1610637330341" />
+    <state width="2517" height="399" key="GridCell.Tab.0.bottom" timestamp="1610637364467">
+      <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="765" y="236" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1590464002919" />
-    <state x="806" y="409" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1584367497540">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="2517" height="399" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1610637364467" />
+    <state width="2517" height="399" key="GridCell.Tab.0.center" timestamp="1610637364467">
+      <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="806" y="409" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584367497540" />
-    <state width="1877" height="248" key="GridCell.Tab.0.bottom" timestamp="1590464807066">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="2517" height="399" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1610637364467" />
+    <state width="2517" height="399" key="GridCell.Tab.0.left" timestamp="1610637364466">
+      <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1877" height="248" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1590464807066" />
-    <state width="1877" height="248" key="GridCell.Tab.0.center" timestamp="1590464807066">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="2517" height="399" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1610637364466" />
+    <state width="2517" height="399" key="GridCell.Tab.0.right" timestamp="1610637364467">
+      <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1877" height="248" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1590464807066" />
-    <state width="1877" height="248" key="GridCell.Tab.0.left" timestamp="1590464807066">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="2517" height="399" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1610637364467" />
+    <state x="960" y="524" key="com.intellij.ide.util.TipDialog" timestamp="1610636550670">
+      <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1877" height="248" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1590464807066" />
-    <state width="1877" height="248" key="GridCell.Tab.0.right" timestamp="1590464807066">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="248" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1590464807066" />
-    <state width="1877" height="248" key="GridCell.Tab.1.bottom" timestamp="1590464807066">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="248" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1590464807066" />
-    <state width="1877" height="248" key="GridCell.Tab.1.center" timestamp="1590464807066">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="248" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1590464807066" />
-    <state width="1877" height="248" key="GridCell.Tab.1.left" timestamp="1590464807066">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="248" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1590464807066" />
-    <state width="1877" height="248" key="GridCell.Tab.1.right" timestamp="1590464807066">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="248" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1590464807066" />
-    <state x="461" y="162" key="SettingsEditor" timestamp="1590421022969">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1590421022969" />
-    <state x="640" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1590457953696">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="640" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590457953696" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/TreeAlgorithm.java</url>
-          <line>59</line>
-          <properties class="TreeAlgorithm" method="postOrder">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <state x="960" y="524" key="com.intellij.ide.util.TipDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1610636550670" />
   </component>
 </project>
