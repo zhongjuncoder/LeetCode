@@ -3,7 +3,10 @@ package tree.easy;
 
 import tree.TreeNode;
 
-public class minimumHeightTree{
+/**
+ * 从左到右
+ */
+public class LeftToRight {
 
     public static void main(String[] args) {
 
