@@ -1,6 +1,10 @@
 package tree.easy;
 
+import tree.Node;
 import tree.TreeNode;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 自顶向下
@@ -37,6 +41,27 @@ public class TopToBottom {
             sum += rangeSumBST(root.right, low, high);
         }
         return sum;
+    }
+
+    /**
+     * 给定一个 N 叉树，返回其节点值的后序遍历后的值。
+     */
+    public List<Integer> postorder(Node root) {
+        List<Integer> list = new ArrayList<>();
+        postorder(root, list);
+        return list;
+    }
+
+    public void postorder(Node root, List<Integer> list) {
+        if (root == null) {
+            return;
+        }
+        if (root.children != null) {
+            for (Node child : root.children) {
+                postorder(child, list);
+            }
+        }
+        list.add(root.val);
     }
 
 }
