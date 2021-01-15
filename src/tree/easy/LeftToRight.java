@@ -27,6 +27,23 @@ public class LeftToRight {
     }
 
     /**
+     * 翻转二叉树
+     */
+    public TreeNode invertTree(TreeNode root) {
+        if (root == null) {
+            return null;
+        }
+        TreeNode left = root.left;
+        TreeNode right = root.right;
+        root.left = right;
+        root.right = left;
+
+        invertTree(left);
+        invertTree(right);
+        return root;
+    }
+
+    /**
      * 给定两个二叉树，想象当你将它们中的一个覆盖到另一个上时，两个二叉树的一些节点便会重叠。
      * <p>
      * 你需要将他们合并为一个新的二叉树。合并的规则是如果两个节点重叠，那么将他们的值相加作为节点合并后的新值，否则不为 NULL 的节点将直接作为新二叉树的节点。
