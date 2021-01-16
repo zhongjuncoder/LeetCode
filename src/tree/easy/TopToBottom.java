@@ -130,4 +130,21 @@ public class TopToBottom {
         return rootTree;
     }
 
+    /**
+     * 给定一个 N 叉树，找到其最大深度。
+     * 最大深度是指从根节点到最远叶子节点的最长路径上的节点总数。
+     * https://leetcode-cn.com/problems/maximum-depth-of-n-ary-tree/
+     */
+    public int maxDepth(Node root) {
+        int max = 0;
+        if (root != null && root.children != null) {
+            int childMax = 0;
+            for (Node child : root.children) {
+                childMax = Math.max(childMax, maxDepth(child));
+            }
+            max = Math.max(max, childMax) + 1;
+        }
+        return max;
+    }
+
 }
