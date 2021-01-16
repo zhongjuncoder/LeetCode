@@ -1,7 +1,11 @@
 package tree.easy;
 
 
+import tree.Node;
 import tree.TreeNode;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 从左到右
@@ -84,6 +88,27 @@ public class LeftToRight {
         root.left = bst(nums, startIndex, middle - 1);
         root.right = bst(nums, middle + 1, endIndex);
         return root;
+    }
+
+    /**
+     * 给定一个 N 叉树，返回其节点值的前序遍历。
+     * https://leetcode-cn.com/problems/n-ary-tree-preorder-traversal/
+     */
+    public List<Integer> preorder(Node root) {
+        List<Integer> list = new ArrayList<>();
+        preorder(root, list);
+        return list;
+    }
+
+    private void preorder(Node root, List<Integer> list) {
+        if (root != null) {
+            list.add(root.val);
+            if (root.children != null) {
+                for (Node child : root.children) {
+                    preorder(child, list);
+                }
+            }
+        }
     }
 
 }
