@@ -63,4 +63,27 @@ public class LeftToRight {
         }
     }
 
+    /**
+     * 将一个按照升序排列的有序数组，转换为一棵高度平衡二叉搜索树。
+     * 本题中，一个高度平衡二叉树是指一个二叉树每个节点 的左右两个子树的高度差的绝对值不超过 1。
+     * https://leetcode-cn.com/problems/convert-sorted-array-to-binary-search-tree/
+     */
+    public TreeNode sortedArrayToBST(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return null;
+        }
+        return bst(nums, 0, nums.length - 1);
+    }
+
+    private TreeNode bst(int[] nums, int startIndex, int endIndex) {
+        if (startIndex > endIndex) {
+            return null;
+        }
+        int middle = (startIndex + endIndex) / 2;
+        TreeNode root = new TreeNode(nums[middle]);
+        root.left = bst(nums, startIndex, middle - 1);
+        root.right = bst(nums, middle + 1, endIndex);
+        return root;
+    }
+
 }
