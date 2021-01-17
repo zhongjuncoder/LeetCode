@@ -5,6 +5,8 @@ import tree.Node;
 import tree.TreeNode;
 
 import java.util.ArrayList;
+import java.util.Deque;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -109,6 +111,34 @@ public class LeftToRight {
                 }
             }
         }
+    }
+
+    /**
+     * 给定一个二叉树，返回其节点值自底向上的层序遍历。 （即按从叶子节点所在层到根节点所在的层，逐层从左向右遍历）
+     * https://leetcode-cn.com/problems/binary-tree-level-order-traversal-ii/
+     */
+    public List<List<Integer>> levelOrderBottom(TreeNode root) {
+        List<List<Integer>> lists = new LinkedList<>();
+        if (root != null) {
+            Deque<TreeNode> linkedList = new LinkedList<>();
+            linkedList.add(root);
+            while (!linkedList.isEmpty()) {
+                List<Integer> list = new ArrayList<>();
+                int size = linkedList.size();
+                for (int i = 0; i < size; i++) {
+                    TreeNode node = linkedList.removeFirst();
+                    list.add(node.val);
+                    if (node.left != null) {
+                        linkedList.add(node.left);
+                    }
+                    if (node.right != null) {
+                        linkedList.add(node.right);
+                    }
+                }
+                lists.add(0, list);
+            }
+        }
+        return lists;
     }
 
 }
