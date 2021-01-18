@@ -114,6 +114,34 @@ public class LeftToRight {
     }
 
     /**
+     * 从上到下按层打印二叉树，同一层的节点按从左到右的顺序打印，每一层打印到一行。
+     * https://leetcode-cn.com/problems/cong-shang-dao-xia-da-yin-er-cha-shu-ii-lcof/
+     */
+    public List<List<Integer>> levelOrder(TreeNode root) {
+        List<List<Integer>> listList = new LinkedList<>();
+        if (root != null) {
+            List<TreeNode> nodeList = new LinkedList<>();
+            nodeList.add(root);
+            while (!nodeList.isEmpty()) {
+                List<Integer> list = new LinkedList<>();
+                int size = nodeList.size();
+                for (int i = 0; i < size; i++) {
+                    TreeNode treeNode = nodeList.remove(0);
+                    if (treeNode.left != null) {
+                        nodeList.add(treeNode.left);
+                    }
+                    if (treeNode.right != null) {
+                        nodeList.add(treeNode.right);
+                    }
+                    list.add(treeNode.val);
+                }
+                listList.add(list);
+            }
+        }
+        return listList;
+    }
+
+    /**
      * 给定一个二叉树，返回其节点值自底向上的层序遍历。 （即按从叶子节点所在层到根节点所在的层，逐层从左向右遍历）
      * https://leetcode-cn.com/problems/binary-tree-level-order-traversal-ii/
      */
