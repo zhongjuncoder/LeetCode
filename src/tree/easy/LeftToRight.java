@@ -15,7 +15,18 @@ import java.util.List;
 public class LeftToRight {
 
     public static void main(String[] args) {
+        TreeNode root = new TreeNode(1);
 
+        TreeNode node1 = new TreeNode(0);
+        root.left = node1;
+        node1.left = new TreeNode(0);
+        node1.right = new TreeNode(1);
+
+        TreeNode node2 = new TreeNode(1);
+        root.right = node2;
+        node2.left = new TreeNode(0);
+        node2.right = new TreeNode(1);
+        System.out.println(sumRootToLeaf(root));
     }
 
     public TreeNode mirrorTree(TreeNode root) {
@@ -196,6 +207,59 @@ public class LeftToRight {
             list.add(sum / size);
         }
         return list;
+    }
+
+    private static List<String> rootToLeafList = new ArrayList<>();
+
+    /**
+     * 给出一棵二叉树，其上每个结点的值都是 0 或 1 。每一条从根到叶的路径都代表一个从最高有效位开始的二进制数。例如，如果路径为 0 -> 1 -> 1 -> 0 -> 1，那么它表示二进制数 01101，也就是 13 。
+     * 对树上的每一片叶子，我们都要找出从根到该叶子的路径所表示的数字。
+     * 返回这些数字之和。题目数据保证答案是一个 32 位 整数。
+     * https://leetcode-cn.com/problems/sum-of-root-to-leaf-binary-numbers/
+     */
+    public static int sumRootToLeaf(TreeNode root) {
+        int result = 0;
+        if (root != null) {
+            if (root.left == null && root.right == null) {
+                rootToLeafList.add(String.valueOf(root.val));
+            } else {
+                sumRootToLeafRecursion(root);
+            }
+        }
+
+        for (String s : rootToLeafList) {
+            result += binaryToDecimal(s);
+        }
+        return result;
+    }
+
+    public static void sumRootToLeafRecursion(TreeNode node) {
+        if (node != null) {
+            if (rootToLeafList.isEmpty()) {
+                rootToLeafList.add(String.valueOf(node.val));
+            } else {
+                String string = rootToLeafList.get(rootToLeafList.size() - 1) + node.val;
+                rootToLeafList.set(rootToLeafList.size() - 1, string);
+                if (node.left == null && node.right == null) {
+                    rootToLeafList.add(string);
+                }
+            }
+
+            sumRootToLeafRecursion(node.left);
+            sumRootToLeafRecursion(node.right);
+            String string = rootToLeafList.get(rootToLeafList.size() - 1);
+            rootToLeafList.set(rootToLeafList.size() - 1, string.substring(0, string.length() - 1));
+        }
+    }
+
+    private static int binaryToDecimal(String binary) {
+        System.out.println(binary);
+        int result = 0;
+        int count = 0;
+        for (int i = binary.length(); i > 0; i--) {
+            result += Integer.parseInt(binary.substring(i - 1, i)) * Math.pow(2, count++);
+        }
+        return result;
     }
 
 }
