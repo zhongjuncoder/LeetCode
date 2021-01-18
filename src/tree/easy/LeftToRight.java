@@ -169,4 +169,33 @@ public class LeftToRight {
         return lists;
     }
 
+    /**
+     * 给定一个非空二叉树, 返回一个由每层节点平均值组成的数组。
+     * https://leetcode-cn.com/problems/average-of-levels-in-binary-tree/
+     */
+    public List<Double> averageOfLevels(TreeNode root) {
+        List<Double> list = new ArrayList<>();
+        Deque<TreeNode> deque = new LinkedList<>();
+        if (root != null) {
+            deque.offer(root);
+        }
+        while (!deque.isEmpty()) {
+            double sum = 0;
+            int size = deque.size();
+            for (int i = 0; i < size; i++) {
+                TreeNode treeNode = deque.pop();
+                sum += treeNode.val;
+
+                if (treeNode.left != null) {
+                    deque.offer(treeNode.left);
+                }
+                if (treeNode.right != null) {
+                    deque.offer(treeNode.right);
+                }
+            }
+            list.add(sum / size);
+        }
+        return list;
+    }
+
 }
