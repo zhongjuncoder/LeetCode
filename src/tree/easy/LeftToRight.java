@@ -262,4 +262,35 @@ public class LeftToRight {
         return result;
     }
 
+    /**
+     * 层次遍历每一个节点，记录下每个节点对应的路径和，当是叶子节点的时候相加即可
+     */
+    public static int sumRootToLeafBetter(TreeNode root) {
+        int result = 0;
+        Deque<TreeNode> treeNodes = new LinkedList<>();
+        Deque<Integer> integers = new LinkedList<>();
+        if (root != null) {
+            treeNodes.offer(root);
+            integers.offer(root.val);
+        }
+
+        while (!treeNodes.isEmpty()) {
+            TreeNode node = treeNodes.poll();
+            int currentNodeSum = integers.poll();
+            if (node.left == null && node.right == null) {
+                result += currentNodeSum;
+            } else {
+                if (node.left != null) {
+                    treeNodes.offer(node.left);
+                    integers.offer((currentNodeSum << 1) + node.left.val);
+                }
+                if (node.right != null) {
+                    treeNodes.offer(node.right);
+                    integers.offer((currentNodeSum << 1) + node.right.val);
+                }
+            }
+        }
+        return result;
+    }
+
 }
