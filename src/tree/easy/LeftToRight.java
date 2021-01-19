@@ -293,4 +293,28 @@ public class LeftToRight {
         return result;
     }
 
+    private int mResult = 0;
+
+    /**
+     * 前序遍历，并计算每次走过的路径和，当是叶子节点时计算总和
+     */
+    public int sumRootToLeafBest(TreeNode root) {
+        sumRootToLeafBest(root, 0);
+        return mResult;
+    }
+
+    private void sumRootToLeafBest(TreeNode node, int sum) {
+        int currentSum = (sum << 1) + node.val;
+        if (node.left == null && node.right == null) {
+            mResult += currentSum;
+        } else {
+            if (node.left != null) {
+                sumRootToLeafBest(node.left, currentSum);
+            }
+            if (node.right != null) {
+                sumRootToLeafBest(node.right, currentSum);
+            }
+        }
+    }
+
 }
