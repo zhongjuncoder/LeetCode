@@ -338,4 +338,30 @@ public class LeftToRight {
         return root;
     }
 
+    private List<String> stringList = new ArrayList<>();
+
+    /**
+     * 给定一个二叉树，返回所有从根节点到叶子节点的路径。
+     * https://leetcode-cn.com/problems/binary-tree-paths/
+     */
+    public List<String> binaryTreePaths(TreeNode root) {
+        if (root != null) {
+            binaryTreePaths(root, String.valueOf(root.val));
+        }
+        return stringList;
+    }
+
+    private void binaryTreePaths(TreeNode node, String paths) {
+        if (node.left == null && node.right == null) {
+            stringList.add(paths);
+        } else {
+            if (node.left != null) {
+                binaryTreePaths(node.left, paths + "->" + node.left.val);
+            }
+            if (node.right != null) {
+                binaryTreePaths(node.right, paths + "->" + node.right.val);
+            }
+        }
+    }
+
 }
