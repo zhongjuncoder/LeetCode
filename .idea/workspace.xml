@@ -121,11 +121,11 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.LeftToRight" />
       <item itemvalue="Application.LinkedAlgorithm" />
       <item itemvalue="Application.Test" />
-      <item itemvalue="Application.TopToBottom" />
       <item itemvalue="Application.Tree" />
+      <item itemvalue="Application.LeftToRight" />
+      <item itemvalue="Application.TopToBottom" />
     </list>
     <recent_temporary>
       <list>
