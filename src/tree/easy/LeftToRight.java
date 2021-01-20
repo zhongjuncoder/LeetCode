@@ -15,9 +15,15 @@ import java.util.List;
 public class LeftToRight {
 
     public static void main(String[] args) {
-        TreeNode root = new TreeNode(1);
+        TreeNode root = new TreeNode(3);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
 
-        TreeNode node1 = new TreeNode(0);
+        TreeNode treeNode = new TreeNode(1);
+        treeNode.left = new TreeNode(3);
+        treeNode.right = new TreeNode(2);
+
+        TreeNode node1 = new TreeNode(5);
         root.left = node1;
         node1.left = new TreeNode(0);
         node1.right = new TreeNode(1);
@@ -382,6 +388,32 @@ public class LeftToRight {
             path.add(root.val + "->" + right);
         }
         return path;
+    }
+
+    /**
+     * 给定一棵叶值序列为 (6, 7, 4, 9, 8) 的树。
+     * 如果有两棵二叉树的叶值序列是相同，那么我们就认为它们是 叶相似 的。
+     * 如果给定的两个头结点分别为 root1 和 root2 的树是叶相似的，则返回 true；否则返回 false 。
+     * https://leetcode-cn.com/problems/leaf-similar-trees/
+     */
+    public static boolean leafSimilar(TreeNode root1, TreeNode root2) {
+        StringBuilder stringBuilder1 = new StringBuilder();
+        StringBuilder stringBuilder2 = new StringBuilder();
+        leafSimilarRecursion(root1, stringBuilder1);
+        leafSimilarRecursion(root2, stringBuilder2);
+        return stringBuilder1.toString().equals(stringBuilder2.toString());
+    }
+
+    private static void leafSimilarRecursion(TreeNode root, StringBuilder stringBuilder) {
+        if (root != null) {
+            if (root.left == null && root.right == null) {
+                stringBuilder.append(root.val);
+                //防止两个数合起来是一样的，比如说14,7和1,47
+                stringBuilder.append("-");
+            }
+            leafSimilarRecursion(root.left, stringBuilder);
+            leafSimilarRecursion(root.right, stringBuilder);
+        }
     }
 
 }
