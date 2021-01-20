@@ -346,6 +346,7 @@ public class LeftToRight {
      */
     public List<String> binaryTreePaths(TreeNode root) {
         if (root != null) {
+            // TODO: 2021/1/20 优化
             binaryTreePaths(root, String.valueOf(root.val));
         }
         return stringList;
@@ -362,6 +363,25 @@ public class LeftToRight {
                 binaryTreePaths(node.right, paths + "->" + node.right.val);
             }
         }
+    }
+
+    public List<String> binaryTreePathsRecursion(TreeNode root) {
+        List<String> path = new ArrayList<>();
+        if (root == null) {
+            return path;
+        }
+        if (root.left == null && root.right == null) {
+            path.add(String.valueOf(root.val));
+            return path;
+        }
+
+        for (String left : binaryTreePathsRecursion(root.left)) {
+            path.add(root.val + "->" + left);
+        }
+        for (String right : binaryTreePathsRecursion(root.right)) {
+            path.add(root.val + "->" + right);
+        }
+        return path;
     }
 
 }

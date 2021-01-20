@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ee118b5b-6c2b-4939-a9f4-3ed51cee83d3" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/tree/easy/LeftToRight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tree/easy/LeftToRight.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -120,11 +121,11 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.LeftToRight" />
       <item itemvalue="Application.LinkedAlgorithm" />
       <item itemvalue="Application.Test" />
-      <item itemvalue="Application.Tree" />
-      <item itemvalue="Application.LeftToRight" />
       <item itemvalue="Application.TopToBottom" />
+      <item itemvalue="Application.Tree" />
     </list>
     <recent_temporary>
       <list>
@@ -198,10 +199,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="2517" height="353" key="GridCell.Tab.1.right/0.0.2560.1400@0.0.2560.1400" timestamp="1610987428527" />
-    <state x="960" y="524" key="com.intellij.ide.util.TipDialog" timestamp="1611068796605">
+    <state x="960" y="524" key="com.intellij.ide.util.TipDialog" timestamp="1611155885962">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="960" y="524" key="com.intellij.ide.util.TipDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1611068796605" />
+    <state x="960" y="524" key="com.intellij.ide.util.TipDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1611155885962" />
     <state x="936" y="330" key="run.anything.popup" timestamp="1610898838166">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
