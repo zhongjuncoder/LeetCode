@@ -213,4 +213,27 @@ public class TopToBottom {
         return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
     }
 
+    /**
+     * 给你一棵所有节点为非负值的二叉搜索树，请你计算树中任意两节点的差的绝对值的最小值。
+     * https://leetcode-cn.com/problems/minimum-absolute-difference-in-bst/
+     */
+    public int getMinimumDifference(TreeNode root) {
+        int min = Integer.MAX_VALUE;
+        List<Integer> list = new ArrayList<>();
+        dfs(root, list);
+        for (int i = 1; i < list.size(); i++) {
+            int tem = list.get(i) - list.get(i - 1);
+            min = Math.min(min, tem);
+        }
+        return min;
+    }
+
+    private void dfs(TreeNode treeNode, List<Integer> list) {
+        if (treeNode != null) {
+            dfs(treeNode.left, list);
+            list.add(treeNode.val);
+            dfs(treeNode.right, list);
+        }
+    }
+
 }
