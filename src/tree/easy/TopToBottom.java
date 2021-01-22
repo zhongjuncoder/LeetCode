@@ -236,4 +236,24 @@ public class TopToBottom {
         }
     }
 
+    private int mMin = Integer.MAX_VALUE;
+
+    private int mInteger = -1;
+
+    public int getMinimumDifferenceBetter(TreeNode root) {
+        dfs(root);
+        return mMin;
+    }
+
+    private void dfs(TreeNode treeNode) {
+        if (treeNode != null) {
+            dfs(treeNode.left);
+            if (mInteger != -1) {
+                mMin = Math.min(treeNode.val - mInteger, mMin);
+            }
+            mInteger = treeNode.val;
+            dfs(treeNode.right);
+        }
+    }
+
 }
