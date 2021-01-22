@@ -256,4 +256,30 @@ public class TopToBottom {
         }
     }
 
+    private int mSum = 0;
+
+    /**
+     * 给定一个二叉树，计算 整个树 的坡度 。
+     * 一个树的 节点的坡度 定义即为，该节点左子树的节点之和和右子树节点之和的 差的绝对值 。如果没有左子树的话，左子树的节点之和为 0 ；没有右子树的话也是一样。空结点的坡度是 0 。
+     * 整个树 的坡度就是其所有节点的坡度之和。
+     * https://leetcode-cn.com/problems/binary-tree-tilt/
+     */
+    public int findTilt(TreeNode root) {
+        findTiltRecursion(root);
+        return mSum;
+    }
+
+    public int findTiltRecursion(TreeNode treeNode) {
+        if (treeNode == null) {
+            return 0;
+        }
+
+        int leftSum;
+        int rightSum;
+        leftSum = findTiltRecursion(treeNode.left);
+        rightSum = findTiltRecursion(treeNode.right);
+        mSum += Math.abs(leftSum - rightSum);
+        return leftSum + rightSum + treeNode.val;
+    }
+
 }
