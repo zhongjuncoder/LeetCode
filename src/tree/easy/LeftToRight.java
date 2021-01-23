@@ -467,4 +467,23 @@ public class LeftToRight {
         return true;
     }
 
+    public boolean isSymmetricBest(TreeNode root) {
+        if (root == null) {
+            return true;
+        }
+        return isSymmetricBestRecursion(root.left, root.right);
+    }
+
+    /**
+     * 对称二叉树定义： 对于树中 任意两个对称节点 LL 和 RR ，一定有：
+     * L.val = R.valL.val=R.val ：即此两对称节点值相等。
+     * L.left.val = R.right.valL.left.val=R.right.val ：即 LL 的 左子节点 和 RR 的 右子节点 对称；
+     * L.right.val = R.left.valL.right.val=R.left.val ：即 LL 的 右子节点 和 RR 的 左子节点 对称。
+     */
+    public boolean isSymmetricBestRecursion(TreeNode left, TreeNode right) {
+        if (left != null && right != null) {
+            return left.val == right.val && isSymmetricBestRecursion(left.left, right.right) && isSymmetricBestRecursion(left.right, right.left);
+        } else return left == null && right == null;
+    }
+
 }
