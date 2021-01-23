@@ -12,14 +12,19 @@ import java.util.List;
 public class TopToBottom {
 
     public static void main(String[] args) {
-        TreeNode root = new TreeNode(3);
+        TreeNode root = new TreeNode(1);
 
-        TreeNode node1 = new TreeNode(1);
+        TreeNode node1 = new TreeNode(2);
         root.left = node1;
-        node1.right = new TreeNode(2);
+        root.right = new TreeNode(2);
 
-        root.right = new TreeNode(4);
-        System.out.println(kthLargest(root, 1));
+        TreeNode node2 = new TreeNode(3);
+        node1.left = node2;
+        node1.right = new TreeNode(3);
+
+        node2.left = new TreeNode(4);
+        node2.right = new TreeNode(4);
+        System.out.println(isBalanced(root));
     }
 
     /**
@@ -280,6 +285,35 @@ public class TopToBottom {
         rightSum = findTiltRecursion(treeNode.right);
         mSum += Math.abs(leftSum - rightSum);
         return leftSum + rightSum + treeNode.val;
+    }
+
+    /**
+     * 输入一棵二叉树的根节点，判断该树是不是平衡二叉树。如果某二叉树中任意节点的左右子树的深度相差不超过1，那么它就是一棵平衡二叉树。
+     * https://leetcode-cn.com/problems/ping-heng-er-cha-shu-lcof/
+     * ***
+     */
+    public static boolean isBalanced(TreeNode root) {
+        if (root == null) {
+            return true;
+        }
+        return isBalancedRecursion(root) != -1;
+    }
+
+    public static int isBalancedRecursion(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        int left = isBalancedRecursion(root.left);
+        if (left == -1) {
+            return -1;
+        }
+
+        int right = isBalancedRecursion(root.right);
+        if (right == -1) {
+            return -1;
+        }
+
+        return (Math.abs(left - right) <= 1) ? Math.max(left, right) + 1 : -1;
     }
 
 }
