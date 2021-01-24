@@ -349,4 +349,36 @@ public class TopToBottom {
         return findTarget(root.left, k) || findTarget(root.right, k);
     }
 
+    /**
+     * 计算给定二叉树的所有左叶子之和。
+     * <p>
+     * 示例：
+     * <p>
+     * 3
+     * / \
+     * 9  20
+     * /  \
+     * 15   7
+     * <p>
+     * 在这个二叉树中，有两个左叶子，分别是 9 和 15，所以返回 24
+     * <p>
+     * https://leetcode-cn.com/problems/sum-of-left-leaves/
+     */
+    public int sumOfLeftLeaves(TreeNode root) {
+        sumOfLeftLeaves(root, false);
+        return mSum;
+    }
+
+    public void sumOfLeftLeaves(TreeNode treeNode, boolean isLeft) {
+        if (treeNode == null) {
+            return;
+        }
+        if (treeNode.left == null && treeNode.right == null && isLeft) {
+            mSum += treeNode.val;
+        } else {
+            sumOfLeftLeaves(treeNode.left, true);
+            sumOfLeftLeaves(treeNode.right, false);
+        }
+    }
+
 }
