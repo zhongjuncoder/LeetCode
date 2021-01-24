@@ -4,6 +4,7 @@ import tree.Node;
 import tree.TreeNode;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -314,6 +315,38 @@ public class TopToBottom {
         }
 
         return (Math.abs(left - right) <= 1) ? Math.max(left, right) + 1 : -1;
+    }
+
+    private HashSet<Integer> hashSet = new HashSet<>();
+
+    /**
+     * 给定一个二叉搜索树和一个目标结果，如果 BST 中存在两个元素且它们的和等于给定的目标结果，则返回 true。
+     * <p>
+     * 案例 1:
+     * <p>
+     * 输入:
+     * 5
+     * / \
+     * 3   6
+     * / \   \
+     * 2   4   7
+     * <p>
+     * Target = 9
+     * <p>
+     * 输出: True
+     * <p>
+     * https://leetcode-cn.com/problems/two-sum-iv-input-is-a-bst/
+     */
+    public boolean findTarget(TreeNode root, int k) {
+        if (root == null) {
+            return false;
+        }
+        if (hashSet.contains(root.val)) {
+            return true;
+        } else {
+            hashSet.add(k - root.val);
+        }
+        return findTarget(root.left, k) || findTarget(root.right, k);
     }
 
 }
