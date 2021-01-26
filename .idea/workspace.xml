@@ -203,13 +203,17 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="2517" height="353" key="GridCell.Tab.1.right/0.0.2560.1400@0.0.2560.1400" timestamp="1611417042768" />
-    <state x="960" y="524" key="com.intellij.ide.util.TipDialog" timestamp="1611589118920">
+    <state x="960" y="524" key="com.intellij.ide.util.TipDialog" timestamp="1611675901352">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="960" y="524" key="com.intellij.ide.util.TipDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1611589118920" />
+    <state x="960" y="524" key="com.intellij.ide.util.TipDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1611675901352" />
     <state x="936" y="330" key="run.anything.popup" timestamp="1610898838166">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="936" y="330" key="run.anything.popup/0.0.2560.1400@0.0.2560.1400" timestamp="1610898838166" />
+    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup" timestamp="1611676644567">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup/0.0.2560.1400@0.0.2560.1400" timestamp="1611676644567" />
   </component>
 </project>
