@@ -5,6 +5,7 @@ import tree.TreeNode;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -446,6 +447,58 @@ public class TopToBottom {
             }
         }
         return -1;
+    }
+
+    /**
+     * 给定一个二叉搜索树的根节点 root，返回树中任意两节点的差的最小值。
+     * <p>
+     * 示例：
+     * <p>
+     * 输入: root = [4,2,6,1,3,null,null]
+     * 输出: 1
+     * 解释:
+     * 注意，root是树节点对象(TreeNode object)，而不是数组。
+     * <p>
+     * 给定的树 [4,2,6,1,3,null,null] 可表示为下图:
+     * <p>
+     * 4
+     * /   \
+     * 2      6
+     * / \
+     * 1   3
+     * <p>
+     * 最小的差值是 1, 它是节点1和节点2的差值, 也是节点3和节点2的差值。
+     * <p>
+     * https://leetcode-cn.com/problems/minimum-distance-between-bst-nodes/
+     */
+    public int minDiffInBSTWorse(TreeNode root) {
+        int min = Integer.MAX_VALUE;
+        List<Integer> list = new ArrayList<>();
+        if (root != null) {
+            List<TreeNode> treeNodes = new LinkedList<>();
+            treeNodes.add(root);
+            while (!treeNodes.isEmpty()) {
+                int size = treeNodes.size();
+                for (int i = 0; i < size; i++) {
+                    TreeNode treeNode = treeNodes.remove(0);
+                    list.add(treeNode.val);
+
+                    if (treeNode.left != null) {
+                        treeNodes.add(treeNode.left);
+                    }
+                    if (treeNode.right != null) {
+                        treeNodes.add(treeNode.right);
+                    }
+                }
+            }
+
+            for (int i = 0; i < list.size() - 1; i++) {
+                for (int j = i + 1; j < list.size(); j++) {
+                    min = Math.min(min, Math.abs(list.get(i) - list.get(j)));
+                }
+            }
+        }
+        return min;
     }
 
 }
