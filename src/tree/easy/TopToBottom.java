@@ -501,4 +501,24 @@ public class TopToBottom {
         return min;
     }
 
+    /**
+     * 中序遍历即为从小打到排序，最小的值必定为相邻两个数之间的差值
+     */
+    public int minDiffInBSTBest(TreeNode root) {
+        minDiffInBSTRecursion(root);
+        return mMin;
+    }
+
+    private void minDiffInBSTRecursion(TreeNode node) {
+        if (node == null) {
+            return;
+        }
+        minDiffInBSTRecursion(node.left);
+        if (treeNode != null) {
+            mMin = Math.min(mMin, Math.abs(treeNode.val - node.val));
+        }
+        treeNode = node;
+        minDiffInBSTRecursion(node.right);
+    }
+
 }
