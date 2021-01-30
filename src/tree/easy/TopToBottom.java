@@ -502,7 +502,7 @@ public class TopToBottom {
     }
 
     /**
-     * 中序遍历即为从小打到排序，最小的值必定为相邻两个数之间的差值
+     * 中序遍历即为从小到大排序，最小的值必定为相邻两个数之间的差值
      */
     public int minDiffInBSTBest(TreeNode root) {
         minDiffInBSTRecursion(root);
@@ -519,6 +519,39 @@ public class TopToBottom {
         }
         treeNode = node;
         minDiffInBSTRecursion(node.right);
+    }
+
+    /**
+     * 给你两棵二叉树，原始树 original 和克隆树 cloned，以及一个位于原始树 original 中的目标节点 target。
+     * 其中，克隆树 cloned 是原始树 original 的一个 副本 。
+     * 请找出在树 cloned 中，与 target 相同 的节点，并返回对该节点的引用（在 C/C++ 等有指针的语言中返回 节点指针，其他语言返回节点本身）。
+     * <p>
+     * 注意：
+     * <p>
+     * 你 不能 对两棵二叉树，以及 target 节点进行更改。
+     * 只能 返回对克隆树 cloned 中已有的节点的引用。
+     * 进阶：如果树中允许出现值相同的节点，你将如何解答？
+     * <p>
+     * 示例 1:
+     * <p>
+     * 输入: tree = [7,4,3,null,null,6,19], target = 3
+     * 输出: 3
+     * 解释: 上图画出了树 original 和 cloned。target 节点在树 original 中，用绿色标记。答案是树 cloned 中的黄颜色的节点（其他示例类似）。
+     * <p>
+     * https://leetcode-cn.com/problems/find-a-corresponding-node-of-a-binary-tree-in-a-clone-of-that-tree/
+     */
+    public final TreeNode getTargetCopy(final TreeNode original, final TreeNode cloned, final TreeNode target) {
+        if (cloned == null) {
+            return null;
+        }
+        if (cloned.val == target.val) {
+            return cloned;
+        }
+        TreeNode left = getTargetCopy(original, cloned.left, target);
+        if (left != null) {
+            return left;
+        }
+        return getTargetCopy(original, cloned.right, target);
     }
 
 }
