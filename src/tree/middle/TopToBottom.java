@@ -2,6 +2,9 @@ package tree.middle;
 
 import tree.TreeNode;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class TopToBottom {
 
     /**
@@ -63,6 +66,32 @@ public class TopToBottom {
             treeNode.right = right;
             constructMaximumBinaryTreeRecursion(right, nums, index + 1, end);
         }
+    }
+
+    private int mSum = 0;
+
+    private int mMaxDepth = 0;
+
+    public int deepestLeavesSum(TreeNode root) {
+        deepestLeavesSum(root, 0);
+        return mSum;
+    }
+
+    private void deepestLeavesSum(TreeNode treeNode, int depth) {
+        if (treeNode == null) {
+            return;
+        }
+
+        if (mMaxDepth == depth) {
+            mSum += treeNode.val;
+        } else if (depth > mMaxDepth) {
+            mMaxDepth = depth;
+            mSum = treeNode.val;
+        }
+
+        int nextDepth = ++depth;
+        deepestLeavesSum(treeNode.left, nextDepth);
+        deepestLeavesSum(treeNode.right, nextDepth);
     }
 
 }
