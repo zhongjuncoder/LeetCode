@@ -3,6 +3,7 @@ package tree.middle;
 import tree.ListNode;
 import tree.TreeNode;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -168,6 +169,59 @@ public class LeftToRight {
             return false;
         }
         return (flipEquiv(root1.left, root2.left) && flipEquiv(root1.right, root2.right)) || (flipEquiv(root1.left, root2.right) && flipEquiv(root1.right, root2.left));
+    }
+
+    /**
+     * 请实现一个函数按照之字形顺序打印二叉树，即第一行按照从左到右的顺序打印，第二层按照从右到左的顺序打印，第三行再按照从左到右的顺序打印，其他行以此类推。
+     * <p>
+     * 例如:
+     * 给定二叉树: [3,9,20,null,null,15,7],
+     * <p>
+     * 3
+     * / \
+     * 9  20
+     * /  \
+     * 15   7
+     * 返回其层次遍历结果：
+     * <p>
+     * [
+     * [3],
+     * [20,9],
+     * [15,7]
+     * ]
+     * <p>
+     * 链接：https://leetcode-cn.com/problems/cong-shang-dao-xia-da-yin-er-cha-shu-iii-lcof
+     */
+    public List<List<Integer>> levelOrder(TreeNode root) {
+        List<List<Integer>> result = new LinkedList<>();
+        if (root == null) {
+            return result;
+        }
+        List<TreeNode> treeNodeList = new LinkedList<>();
+        treeNodeList.add(root);
+        boolean leftToRight = true;
+        while (!treeNodeList.isEmpty()) {
+            int size = treeNodeList.size();
+            List<Integer> integers = new LinkedList<>();
+            for (int i = 0; i < size; i++) {
+                TreeNode treeNode = treeNodeList.remove(0);
+
+                if (treeNode.left != null) {
+                    treeNodeList.add(treeNode.left);
+                }
+                if (treeNode.right != null) {
+                    treeNodeList.add(treeNode.right);
+                }
+                if (leftToRight) {
+                    integers.add(treeNode.val);
+                } else {
+                    integers.add(0, treeNode.val);
+                }
+            }
+            leftToRight = !leftToRight;
+            result.add(integers);
+        }
+        return result;
     }
 
 }
