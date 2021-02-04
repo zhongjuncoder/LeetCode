@@ -2,8 +2,7 @@ package tree.middle;
 
 import tree.TreeNode;
 
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class TopToBottom {
 
@@ -122,6 +121,84 @@ public class TopToBottom {
         boolean isEven = treeNode.val % 2 == 0;
         sumEvenGrandparent(treeNode.left, parentIsEven, isEven);
         sumEvenGrandparent(treeNode.right, parentIsEven, isEven);
+    }
+
+    private HashMap<Integer, Integer> hashMap = new HashMap<>();
+
+    /**
+     * 给你一个二叉树的根结点，请你找出出现次数最多的子树元素和。一个结点的「子树元素和」定义为以该结点为根的二叉树上所有结点的元素之和（包括结点本身）。
+     * <p>
+     * 你需要返回出现次数最多的子树元素和。如果有多个元素出现的次数相同，返回所有出现次数最多的子树元素和（不限顺序）。
+     * <p>
+     * 示例 1：
+     * 输入:
+     * <p>
+     * 5
+     * /  \
+     * 2   -3
+     * 返回 [2, -3, 4]，所有的值均只出现一次，以任意顺序返回所有值。
+     * <p>
+     * 示例 2：
+     * 输入：
+     * <p>
+     * 5
+     * /  \
+     * 2   -5
+     * 返回 [2]，只有 2 出现两次，-5 只出现 1 次。
+     * <p>
+     * 链接：https://leetcode-cn.com/problems/most-frequent-subtree-sum
+     */
+    public int[] findFrequentTreeSum(TreeNode root) {
+        if (root == null) {
+            return new int[0];
+        }
+        findFrequentTreeSumRecursion(root, root.val);
+        List<Integer> list = new LinkedList<>();
+        for (Integer integer : hashMap.keySet()) {
+            list.add(hashMap.get(integer));
+        }
+        Collections.sort(list);
+        int maxCount = list.get(list.size() - 1);
+        boolean hasMax = false;
+        for (int i = list.size() - 2; i >= 0; i--) {
+            if (list.get(i) < maxCount) {
+                hasMax = true;
+                break;
+            }
+        }
+
+        List<Integer> integers = new ArrayList<>();
+        if (hasMax) {
+            for (Integer integer : hashMap.keySet()) {
+                int value = hashMap.get(integer);
+                if (value == maxCount) {
+                    integers.add(integer);
+                }
+            }
+        } else {
+            integers.addAll(hashMap.keySet());
+        }
+        int[] result = new int[integers.size()];
+        for (int i = 0; i < integers.size(); i++) {
+            result[i] = integers.get(i);
+        }
+        return result;
+    }
+
+    private int findFrequentTreeSumRecursion(TreeNode treeNode, int sum) {
+        if (treeNode == null) {
+            return sum;
+        }
+        int currentSum = sum;
+        if (treeNode.left != null) {
+            currentSum += findFrequentTreeSumRecursion(treeNode.left, treeNode.left.val);
+        }
+        if (treeNode.right != null) {
+            currentSum += findFrequentTreeSumRecursion(treeNode.right, treeNode.right.val);
+        }
+        int count = hashMap.getOrDefault(currentSum, 0);
+        hashMap.put(currentSum, ++count);
+        return currentSum;
     }
 
 }
