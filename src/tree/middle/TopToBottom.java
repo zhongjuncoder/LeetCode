@@ -244,4 +244,24 @@ public class TopToBottom {
         return currentSum;
     }
 
+    /**
+     * 给定一个二叉树的根节点 root ，返回它的 中序 遍历。
+     *
+     * https://leetcode-cn.com/problems/binary-tree-inorder-traversal/
+     */
+    public List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> list = new LinkedList<>();
+        inorderTraversalRecursion(root,list);
+        return list;
+    }
+
+    private void inorderTraversalRecursion(TreeNode treeNode,List<Integer> list) {
+        if (treeNode == null) {
+            return;
+        }
+        inorderTraversalRecursion(treeNode.left,list);
+        list.add(treeNode.val);
+        inorderTraversalRecursion(treeNode.right,list);
+    }
+
 }
