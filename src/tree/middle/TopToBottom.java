@@ -246,22 +246,62 @@ public class TopToBottom {
 
     /**
      * 给定一个二叉树的根节点 root ，返回它的 中序 遍历。
-     *
+     * <p>
      * https://leetcode-cn.com/problems/binary-tree-inorder-traversal/
      */
     public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> list = new LinkedList<>();
-        inorderTraversalRecursion(root,list);
+        inorderTraversalRecursion(root, list);
         return list;
     }
 
-    private void inorderTraversalRecursion(TreeNode treeNode,List<Integer> list) {
+    private void inorderTraversalRecursion(TreeNode treeNode, List<Integer> list) {
         if (treeNode == null) {
             return;
         }
-        inorderTraversalRecursion(treeNode.left,list);
+        inorderTraversalRecursion(treeNode.left, list);
         list.add(treeNode.val);
-        inorderTraversalRecursion(treeNode.right,list);
+        inorderTraversalRecursion(treeNode.right, list);
+    }
+
+    private List<Integer> treeNodeList = new LinkedList<>();
+
+    /**
+     * 实现一个二叉搜索树迭代器。你将使用二叉搜索树的根节点初始化迭代器。
+     * <p>
+     * 调用 next() 将返回二叉搜索树中的下一个最小的数。
+     *  
+     * 示例：
+     * <p>
+     * BSTIterator iterator = new BSTIterator(root);
+     * iterator.next();    // 返回 3
+     * iterator.next();    // 返回 7
+     * iterator.hasNext(); // 返回 true
+     * iterator.next();    // 返回 9
+     * iterator.hasNext(); // 返回 true
+     * iterator.next();    // 返回 15
+     * iterator.hasNext(); // 返回 true
+     * iterator.next();    // 返回 20
+     * iterator.hasNext(); // 返回 false
+     * <p>
+     * 链接：https://leetcode-cn.com/problems/binary-search-tree-iterator
+     */
+    private void BSTIteratorRecursion(TreeNode treeNode) {
+        if (treeNode == null) {
+            return;
+        }
+        BSTIteratorRecursion(treeNode.left);
+        treeNodeList.add(treeNode.val);
+        BSTIteratorRecursion(treeNode.right);
+
+    }
+
+    public int next() {
+        return treeNodeList.remove(0);
+    }
+
+    public boolean hasNext() {
+        return !treeNodeList.isEmpty();
     }
 
 }
