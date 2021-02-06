@@ -201,4 +201,47 @@ public class TopToBottom {
         return currentSum;
     }
 
+    private int mMax = Integer.MIN_VALUE;
+
+    /**
+     * 题目只需要找到出现次数最多的子树元素和，所以记录下出现次数最多的是多少次数即可，省去了排序和去找最大次数
+     */
+    public int[] findFrequentTreeSumBetter(TreeNode root) {
+        if (root == null) {
+            return new int[0];
+        }
+        findFrequentTreeSumRecursion(root, root.val);
+        List<Integer> integers = new ArrayList<>();     //get的时候LinkedList的复杂度是O(n)
+        for (Integer integer : hashMap.keySet()) {
+            if (hashMap.get(integer) == mMax) {
+                integers.add(integer);
+            }
+        }
+        int[] result = new int[integers.size()];
+        for (int i = 0; i < integers.size(); i++) {
+            result[i] = integers.get(i);
+        }
+        return result;
+    }
+
+    private int findFrequentTreeSumRecursionBetter(TreeNode treeNode, int sum) {
+        if (treeNode == null) {
+            return sum;
+        }
+
+        int currentSum = sum;
+        if (treeNode.left != null) {
+            currentSum += findFrequentTreeSumRecursionBetter(treeNode.left, treeNode.left.val);
+        }
+        if (treeNode.right != null) {
+            currentSum += findFrequentTreeSumRecursionBetter(treeNode.right, treeNode.right.val);
+        }
+
+        int count = hashMap.getOrDefault(currentSum, 0);
+        count = ++count;
+        hashMap.put(currentSum, count);
+        mMax = Math.max(mMax, count);
+        return currentSum;
+    }
+
 }
